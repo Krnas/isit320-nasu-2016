@@ -5,3 +5,11 @@ bower_components
 components
 Thumbs.db
 *.zip
+node_modules
+.metadata
+.idea
+bower_components
+components
+Thumbs.db
+*.zip
+npm-debug.log
