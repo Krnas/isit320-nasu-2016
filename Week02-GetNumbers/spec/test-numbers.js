@@ -50,11 +50,11 @@ describe('GetNumbers Jasmine intro tests', function() {
     });
 
     it('shows getEight returns eight', function() {
-        expect(getNumbers.getEight()).toBe(1);
+        expect(getNumbers.getEight()).toBe(8);
     });
 
     it('shows getNine returns nine', function() {
-        expect(getNumbers.getNine()).toBe(2);
+        expect(getNumbers.getNine()).toBe(9);
     });
 
 });
