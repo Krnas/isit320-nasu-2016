@@ -1,0 +1,25 @@
+{
+  "name": "week03-express-routes",
+  "description": "learn about routes",
+  "main": "",
+  "authors": [
+    "Kristi Nasu <knasu12@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "express",
+    "routes"
+  ],
+  "homepage": "https://github.com/Krnas/isit320-nasu-2016",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
