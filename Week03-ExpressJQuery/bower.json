@@ -1,0 +1,24 @@
+{
+  "name": "week03-expressjquery",
+  "description": "jquery",
+  "main": "isit320-nasu-2016",
+  "authors": [
+    "kristi"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "expressjquery"
+  ],
+  "homepage": "https://github.com/Krnas/isit320-nasu-2016",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
