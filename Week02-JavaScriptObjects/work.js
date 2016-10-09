@@ -1,8 +1,10 @@
 var person = {
-	firstName: "Kristi",
-	lastName: "Nasu",
+	
+	firstName: 'Kristi',
+	lastName: 'Nasu',
 	fullName: function() {
-		return this.firstName + " " + this.lastName;
+		'use strict';
+		return this.firstName + ' ' + this.lastName;
 	}
 };
 
@@ -13,23 +15,23 @@ var calculator= {
     subtract: function(){return this.operator01 + this.operator02;}
 };
 
-var multiply={
-mult: function() {return this.operator01 * this.operator02}
+calculator.multiply = function() {
+        return this.operator01 * this.operator02
 };
+
 calculator.operator01 = person.firstName.length;
 calculator.operator02 = person.lastName.length;
 
 console.log(person.firstName);
 console.log(person.lastName);
-console.log((fullName.full()));
+console.log(person.fullName());
 console.log(calculator.add());
-console.log(calculator.subtract())
-
+console.log(calculator.subtract());
 
 function divider(title) {
-    console.log("====================================");
+    console.log('====================================');
     console.log(title);
-    console.log("====================================");
+    console.log('====================================');
 }
 divider('Calculator');
 console.log('operator01 =', calculator.operator01);
