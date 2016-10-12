@@ -25,25 +25,32 @@ define(['floors'], function(Floors) {
         scene = new THREE.Scene();
         var width = window.innerWidth / window.innerHeight;
         camera = new THREE.PerspectiveCamera(75, width, 0.1, 1000);
-
-        renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-        document.body.appendChild(renderer.domElement);
-        cube = addCube(scene, camera, false, 1, 1);
+        cube = addCubes(scene, camera, false);
         var floor = new Floors(THREE);
             floor.drawFloor(scene);
-
+        addLights();
         renderer = new THREE.WebGLRenderer({
             antialias : true
         });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
 
         camera.position.z = 23;
         camera.position.x = 2;
         camera.position.y = 0;
+        document.addEventListener('keydown', onKeyDown, false);
+        document.addEventListener('keyup', onKeyUp, false);
+        window.addEventListener('resize', onWindowResize, false);
         render();
+
+    }
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
     }
 
-    document.addEventListener('keydown', onKeyDown, false);
-    document.addEventListener('keyup', onKeyUp, false);
+
 
     var onKeyDown = function(event) {
 
@@ -107,9 +114,9 @@ define(['floors'], function(Floors) {
         } else if (keyMove.moveForward) {
             cameraPosition.z -= 1;
         } else if (keyMove.moveBackward) {
-            cameraPosition.z -= 1;
+            cameraPosition.z += 1;
         }
-    }
+
 
         camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
         requestAnimationFrame(render);
@@ -117,7 +124,7 @@ define(['floors'], function(Floors) {
         //cube.rotation.y += 0.01;
         renderer.render(scene, camera);
 
-
+    }
     function addSphere(sne, camera, wireFrame, x, y) {
         var geometry = new THREE.SphereGeometry(.5, 25, 25);
         var material = new THREE.MeshNormalMaterial({
@@ -133,6 +140,31 @@ define(['floors'], function(Floors) {
         return sphere;
     }
 
+    function addCube(scene, camera, wireFrame, x, z) {
+        var geometry = new THREE.BoxGeometry(1, 1, 1);
+        /*var material = new THREE.MeshNormalMaterial({
+            color : 0x00ffff,
+            wireframe : wireFrame
+        });*/
+        var material = new THREE.MeshLambertMaterial({
+            map : THREE.ImageUtils.loadTexture('images/crate.jpg')
+        });
+        var cube = new THREE.Mesh(geometry, material);
+        cube.position.set(x, 0, z);
+        scene.add(cube);
+
+        addSphere(scene, camera, wireFrame, 2, -7);
+
+        return cube;
+    }
+
+    function addCubes(scene, camera, wireFrame) {
+        for (var i=0; i<6; i++) {
+            addCube(scene, camera, wireFrame, 1, i);
+            addCube(scene, camera, wireFrame, 3, i);
+        }
+    }
+
     function addLights() {
         var light = new THREE.DirectionalLight(0xffffff, 1.5);
         light.position.set(1, 1, 1);
@@ -142,31 +174,6 @@ define(['floors'], function(Floors) {
         scene.add(light);
     }
 
-    function addCube(scene, camera, wireFrame, x, y) {
-        var geometry = new THREE.BoxGeometry(7, 7, 7);
-        /*var material = new THREE.MeshNormalMaterial({
-            color : 0x00ffff,
-            wireframe : wireFrame
-        });*/
-        var material = new THREE.MeshLambertMaterial({
-            map : THREE.ImageUtils.loadTexture('images/crate.jpg')
-        });
-        var cube = new THREE.Mesh(geometry, material);
-        cube.position.set(x, 0, y);
-        scene.add(cube);
-
-        addSphere(scene, camera, wireFrame, 2, -7);
-
-        return cube;
-    }
-
-    window.addEventListener('resize', onWindowResize, false);
-
-    function onWindowResize() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    }
 
     return Control;
 });
