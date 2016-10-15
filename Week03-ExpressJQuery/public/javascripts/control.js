@@ -19,26 +19,19 @@ $(document).ready(function() {
 
 function MyObject() {
     $('#sendString').click(showString);
+    $('#getItems').click(showItems);
+    $('#getJson').click(getJson);
+
 }
 
 function showString() {
     $('#stringHolder').html('Send string was clicked');
 }
 
-function MyObject() {
-    $('#getItems').click(showItems);
-}
-
 function showItems() {
     $("#myList").append('<li>' + 'item01' + '</li>');
     $("#myList").append('<li>' + 'item02' + '</li>');
     $("#myList").append('<li>' + 'item03' + '</li>');
-}
-
-function MyObject() {
-    $('#sendString').click(showString);
-    $('#getItems').click(showItems);
-    $('#getMarie').click(showMarie);
 }
 
 function showMarie() {
