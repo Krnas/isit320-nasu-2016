@@ -23,7 +23,7 @@ $(document).ready(function() {
         })
     }
 
-    function callReadJson() {
+    function readJson() {
         console.log('readJson called');
         $.getJSON('names.json', function(result) {
             console.log(result);

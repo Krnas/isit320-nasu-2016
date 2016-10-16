@@ -23,11 +23,11 @@ module.exports = function(grunt) {
                 src: ['**/node_modules/**', '**/components/**']
             }
         },
-      jscs: {
-			src: ['**/*.js', '!**/bitly-links.js'],
-			options: {
-				config: '.jscsrc'
-			}
+        jscs: {
+            src: ['**/*.js', '!**/bitly-links.js'],
+            options: {
+                config: '.jscsrc'
+            }
         },
 
         'jsbeautifier': {
@@ -46,4 +46,3 @@ module.exports = function(grunt) {
     grunt.registerTask('beautify', ['jsbeautifier']);
     grunt.registerTask('check', ['beautify', 'jscs', 'jshint']);
 };
-
