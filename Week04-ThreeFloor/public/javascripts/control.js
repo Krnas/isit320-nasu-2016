@@ -7,30 +7,30 @@ define(['floors'], function(Floors) {
     var THREE = null;
 
     var keyMove = {
-        moveForward : false,
-        moveBackward : false,
-        moveLeft : false,
-        moveRight : false
+        moveForward: false,
+        moveBackward: false,
+        moveLeft: false,
+        moveRight: false
     };
 
     var cameraPosition = {
-        x : 2,
-        y : 0,
-        z : 2
-    }
+        x: 2,
+        y: 0,
+        z: 2
+    };
 
     function Control(threeInit) {
         THREE = threeInit;
-        console.log("Control called");
+        console.log('Control called');
         scene = new THREE.Scene();
         var width = window.innerWidth / window.innerHeight;
         camera = new THREE.PerspectiveCamera(75, width, 0.1, 1000);
         cube = addCubes(scene, camera, false);
         var floor = new Floors(THREE);
-            floor.drawFloor(scene);
+        floor.drawFloor(scene);
         addLights();
         renderer = new THREE.WebGLRenderer({
-            antialias : true
+            antialias: true
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
@@ -44,13 +44,12 @@ define(['floors'], function(Floors) {
         render();
 
     }
+
     function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     }
-
-
 
     var onKeyDown = function(event) {
 
@@ -79,32 +78,32 @@ define(['floors'], function(Floors) {
 
     };
 
-        var onKeyUp = function(event) {
+    var onKeyUp = function(event) {
 
-            switch (event.keyCode) {
+        switch (event.keyCode) {
 
-                case 38: // up
-                case 87: // w
-                    keyMove.moveForward = false;
-                    break;
+            case 38: // up
+            case 87: // w
+                keyMove.moveForward = false;
+                break;
 
-                case 37: // left
-                case 65: // a
-                    keyMove.moveLeft = false;
-                    break;
+            case 37: // left
+            case 65: // a
+                keyMove.moveLeft = false;
+                break;
 
-                case 40: // down
-                case 83: // s
-                    keyMove.moveBackward = false;
-                    break;
+            case 40: // down
+            case 83: // s
+                keyMove.moveBackward = false;
+                break;
 
-                case 39: // right
-                case 68: // d
-                    keyMove.moveRight = false;
-                    break;
-            }
+            case 39: // right
+            case 68: // d
+                keyMove.moveRight = false;
+                break;
+        }
 
-        };
+    };
 
     function render() {
         if (keyMove.moveLeft) {
@@ -117,7 +116,6 @@ define(['floors'], function(Floors) {
             cameraPosition.z += 1;
         }
 
-
         camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
         requestAnimationFrame(render);
         //cube.rotation.x += 0.01;
@@ -125,10 +123,10 @@ define(['floors'], function(Floors) {
         renderer.render(scene, camera);
 
     }
+
     function addSphere(sne, camera, wireFrame, x, y) {
         var geometry = new THREE.SphereGeometry(.5, 25, 25);
         var material = new THREE.MeshNormalMaterial({
-            color: 0x00ffff,
             wireframe: wireFrame
         });
 
@@ -142,12 +140,9 @@ define(['floors'], function(Floors) {
 
     function addCube(scene, camera, wireFrame, x, z) {
         var geometry = new THREE.BoxGeometry(1, 1, 1);
-        /*var material = new THREE.MeshNormalMaterial({
-            color : 0x00ffff,
-            wireframe : wireFrame
-        });*/
+
         var material = new THREE.MeshLambertMaterial({
-            map : THREE.ImageUtils.loadTexture('images/crate.jpg')
+            map: THREE.ImageUtils.loadTexture('images/crate.jpg')
         });
         var cube = new THREE.Mesh(geometry, material);
         cube.position.set(x, 0, z);
@@ -159,7 +154,7 @@ define(['floors'], function(Floors) {
     }
 
     function addCubes(scene, camera, wireFrame) {
-        for (var i=0; i<6; i++) {
+        for (var i = 0; i < 6; i++) {
             addCube(scene, camera, wireFrame, 1, i);
             addCube(scene, camera, wireFrame, 3, i);
         }
@@ -173,7 +168,6 @@ define(['floors'], function(Floors) {
         light.position.set(-1, -0.5, -1);
         scene.add(light);
     }
-
 
     return Control;
 });
