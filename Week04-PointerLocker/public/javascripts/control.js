@@ -49,6 +49,17 @@ define(['floors', 'pointer-lock-controls'], function(Floors, PointerLockControls
         window.addEventListener('resize', onWindowResize, false);
     }
 
+    function doPointerLock() {
+        controls = new PointerLockControls(camera, THREE);
+        var yawObject = controls.getObject();
+        scene.add(yawObject);
+
+        yawObject.position.x = size;
+        yawObject.position.z = size;
+
+        var ps = new PointerLockSetup(controls);
+    }
+
     function Control(init) {
         init();
         animate();
@@ -76,6 +87,7 @@ define(['floors', 'pointer-lock-controls'], function(Floors, PointerLockControls
         //animate();
 
     }
+
     function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -208,21 +220,5 @@ define(['floors', 'pointer-lock-controls'], function(Floors, PointerLockControls
         scene.add(light);
     }
 
-    function collisionDetection(position) {
-        // Collision detection
-        raycaster.ray.origin.copy(position);
-        // raycaster.ray.origin.y -= 10;
-        var dir = controls.getDirection(new THREE.Vector3(0, 0, 0)).clone();
-        raycaster.ray.direction.copy(dir);
-
-        var intersections = raycaster.intersectObjects(cubes);
-
-        // If we hit something (a wall) then stop moving in
-        // that direction
-        if (intersections.length > 0 && intersections[0].distance <= 215) {
-            console.log(intersections.length);
-            controls.isOnObject(true);
-        }
-    }
     return Control;
 });
