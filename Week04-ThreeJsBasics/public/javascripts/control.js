@@ -1,5 +1,5 @@
 define(function() {
-
+    'use strict';
     var scene = null;
     var camera = null;
     var renderer = null;
