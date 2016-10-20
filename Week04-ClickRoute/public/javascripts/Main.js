@@ -1,13 +1,14 @@
 /**
  * @author Charlie Calvert
  */
-$(document).ready(callback);
+
 require.config({
+    baseUrl: '.',
     paths : {
-        "jquery" : 'jquery-1.11.1.min'
+        "jquery" : 'components/jquery/dist/jquery.min',
+        'ClickEvents': 'javascripts/ClickEvents'
     }
 });
-define(["jquery"], function(jquery) {'use strict';})
 
 require(['jquery', 'ClickEvents'], function(jquery, ClickEvents) {
     'use strict';

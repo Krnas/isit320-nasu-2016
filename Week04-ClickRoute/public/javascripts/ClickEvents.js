@@ -18,22 +18,12 @@ define(["jquery"], function(jquery) {'use strict';
                 var prompt = "You clicked: ";
                 $(intro).html(prompt + clickText);
 
-                var route1 = '/Item01';
-                $.getJSON(route1, function (result) {
-                    console.log(result);
-                    $('#display').html(JSON.stringify(result));
-                })
-                var route2 = '/Item02';
-                $.getJSON(route2, function (result) {
-                    console.log(result);
-                    $('#display').html(JSON.stringify(result));
-                })
-                var route3 = '/Item03' ;
-                $.getJSON(route3, function (result) {
-                    console.log(result);
-                    $('#display').html(JSON.stringify(result));
-                })
+                   /*var theRoute = '/Item01';
+                   $getJSON(theRoute, function (result) {
+                       alert(JSON.stringify(result, null, 4))
+                   });
 
+*/
             };
 
             return ClickEvents;

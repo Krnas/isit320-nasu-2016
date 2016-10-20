@@ -5,23 +5,21 @@ requirejs.config({
 
         "Three" : 'javascripts/three',
         "control" : 'javascripts/control',
-        "floors": 'javascripts/floors',
-        "PointerLockControls": 'javascripts/pointer-lock-controls'
+        "floor": 'javascripts/floors',
+        "PointerLockControls": 'javascripts/pointer-lock-controls',
+        "PointerLockSetup": 'javascripts/pointer-lock-setup'
 
     },
     shim : {
         'Three' : {
             exports: 'THREE'
-        },
-        'PointerLockControls': {
-            exports: 'PointerLockControls'
         }
     }
 });
 
 requirejs([ 'jquery'], function($) {
     'use strict';
-    requirejs(['Three', 'control', 'floors' ], function(THREE, Control, floors) {
+    requirejs(['Three', 'control'], function(THREE, Control) {
         $(document).ready(function() {
             var control = new Control(THREE);
         });

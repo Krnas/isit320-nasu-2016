@@ -7,13 +7,6 @@ a {
   color: #00B7FF;
 }
 
-#blue {
-  color: #0000FF;
-}
-
-.short {
-  width: 600px;
-}
-.listItem {
-  border: solid 2px black;
+p {
+	width: 800px;
 }
