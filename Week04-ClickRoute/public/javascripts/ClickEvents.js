@@ -18,12 +18,11 @@ define(["jquery"], function(jquery) {'use strict';
                 var prompt = "You clicked: ";
                 $(intro).html(prompt + clickText);
 
-                   /*var theRoute = '/Item01';
+                   var theRoute = '/Item01';
                    $getJSON(theRoute, function (result) {
                        alert(JSON.stringify(result, null, 4))
                    });
-
-*/
+                
             };
 
             return ClickEvents;

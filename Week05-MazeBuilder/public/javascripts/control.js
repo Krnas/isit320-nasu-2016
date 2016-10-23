@@ -227,7 +227,7 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup'], function(Floor, Poi
     }
 
     function addCubes(scene, camera, wireFrame) {
-        $.getJSON('Grid000.json', function(grid) {
+        $.getJSON('javscripts/Grid000.json', function(grid) {
             for (var i=0; i < grid.length; i++) {
                 console.log(grid[i]);
                 //addCube(scene, camera, wireFrame, 0, -(i * size));
