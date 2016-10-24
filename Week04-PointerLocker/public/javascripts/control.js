@@ -231,9 +231,9 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup'], function(Floor, Poi
             addCube(scene, camera, wireFrame, 0, -(i* size));
             addCube(scene, camera, wireFrame, size * 2, -(i * size));
 
-            addSphere(scene, camera, wireFrame, size, size * -6)
+            addSphere(scene, camera, wireFrame, size, size * -6);
         }
-    }
+    };
 
     function addLights() {
         var light = new THREE.DirectionalLight(0xffffff, 1.5);

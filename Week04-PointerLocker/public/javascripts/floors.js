@@ -8,9 +8,7 @@ define([require], function() {
         THREE=threeInit;
     }
 
-
     function makeFloor() {
-
 
         var geometry = new THREE.PlaneGeometry(2000, 2000, 100, 100);
         geometry.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI / 2));

@@ -1,13 +1,12 @@
 requirejs.config({
     baseUrl : '.',
     paths : {
-        "jquery" : 'components/jquery/dist/jquery',
-
-        "Three" : 'javascripts/three',
-        "control" : 'javascripts/control',
-        "floor": 'javascripts/floors',
-        "PointerLockControls": 'javascripts/pointer-lock-controls',
-        "PointerLockSetup": 'javascripts/pointer-lock-setup'
+        'jquery': 'components/jquery/dist/jquery',
+        'Three': 'javascripts/three',
+        'control': 'javascripts/control',
+        'floor': 'javascripts/floors',
+        'PointerLockControls': 'javascripts/pointer-lock-controls',
+        'PointerLockSetup': 'javascripts/pointer-lock-setup'
 
     },
     shim : {
