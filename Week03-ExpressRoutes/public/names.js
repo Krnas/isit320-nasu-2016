@@ -1,5 +1,5 @@
 [{
-    "name": "FileLee"
+    'name': 'FileLee'
 }, {
-    "name": "FileBob"
-}]
+    'name': 'FileBob'
+}];
