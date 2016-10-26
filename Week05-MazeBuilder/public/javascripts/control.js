@@ -209,11 +209,11 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup'], function(Floor, Poi
         return sphere;
     }
 
-    function addCube(scene, camera, wireFrame, x, z) {
+    function addCube(scene, camera, wireFrame, x, z, floorTexture) {
         var geometry = new THREE.BoxGeometry(size, size, size);
 
-        var loader = new THREE.TextureLoader();
-        var floorTexture = loader.load('images/crate.jpg');
+       // var loader = new THREE.TextureLoader();
+        //var floorTexture = loader.load('images/crate.jpg');
         var material = new THREE.MeshLambertMaterial({
             map : floorTexture
         });
@@ -227,14 +227,19 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup'], function(Floor, Poi
     }
 
     function addCubes(scene, camera, wireFrame) {
-        $.getJSON('javscripts/Grid000.json', function(grid) {
-            for (var i=0; i < grid.length; i++) {
+        var loader = new THREE.TextureLoader();
+        var floorTexture = loader.load('images/crate.jpg');
+        $.getJSON('grid000.json', function (grid) {
+            for (var i = 0; i < grid.length; j++) {
                 console.log(grid[i]);
-                //addCube(scene, camera, wireFrame, 0, -(i * size));
-            }
+                for (var j = 0; j < grid.length; i++) {
+                    if (grid[j][i] == 1) {
 
+                        addCube(scene, camera, wireFrame, j * size, -(i * size), floorTexture);
+                    }
+                }
+            }
         });
-            addSphere(scene, camera, wireFrame, size, size * -6)
     }
 
     function addLights() {

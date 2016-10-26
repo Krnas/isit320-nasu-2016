@@ -63,7 +63,7 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup'], function(Floor, Poi
         $('#cameraZ').html(position.z);
         $('#mazeX').html(Math.round(position.x / size));
         $('#mazeZ').html(Math.round(position.z / size));
-        $('#npcs')
+        $('#npcs').empty();
         for (var i = 0; i < npcs.length; i++) {
             $('#npcs').append('<li>' + npcs[i] + '</li>');
         }
