@@ -28,43 +28,57 @@ function designDocs(router, nano, dbName) {
         emit(doc._id, doc.name);
     };
 
-    var docNpcsCapital = function(doc) {
-        if (doc._id=== 'npcObjects') {
-            var data = [];
-            doc.docs.forEach(function(npcs) {
-                data.push({
-                    'npc_id': doc.npc_id,
-                    'npc_name': doc.npc_name,
-                    'value': doc.value
-                });
-            });
-            emit(doc.docs[0].abbreviation, data);
-        }
-
+    var docStateCapital = function(doc) {
+        emit(doc.abbreviation, {
+            'name': doc.name,
+            'capital': doc.capital
+        });
     };
 
-    var docNpcsDoc = function(doc) {
-        if (doc._id === 'npcObjects') {
+    var docStatesDoc = function(doc) {
+        if (doc._id === 'statesDoc') {
             var data = [];
-            doc.docs.forEach(function(npcs) {
+            doc.docs.forEach(function(state) {
                 data.push({
-                    'npc_id': doc.npc_id,
-                    'npc_name': doc.npc_name,
-                    'question': doc.question,
-                    'answer': doc.answer
+                    'name': state.name,
+                    'capital': state.capital
                 });
             });
             emit(doc.docs[0].abbreviation, data);
         }
     };
 
-    nanoDb.insert(npcs, docName, function(err, body) {
-        if (!err) {
-            console.log(body);
-        } else {
-            console.log(err);
+    /*
+    var viewStatesDoc = function(doc) {
+        if (doc._id === "statesDoc") {
+            var data = [];
+            doc.docs.forEach(function(state) {
+                emit({
+                    "name" : state.name,
+                    "capital" : state.capital
+                }, 1);
+            });
+            emit(doc.docs[0].abbreviation, data);
         }
-    });
+    }
+
+    var docStatesHtml = function(doc) {
+        start({
+            'headers' : {
+                'Content-Type' : 'text/html'
+            }
+        });
+        send('<html><body><table>');
+        send('<tr><th>ID</th><th>Key</th><th>Value</th></tr>')
+        while (row = viewStatesDoc()) {
+            send(''.concat('<tr>', '<td>' + toJSON(row.name) + '</td>', '<td>'
+                    + toJSON(row.capital) + '</td>', '<td>' + toJSON(row.value)
+                    + '</td>', '</tr>'));
+        }
+        send('</table></body></html>');
+
+    }*/
+
     function createDesignDocument(designDocument, designName, response) {
         var nanoDb = nano.db.use(dbName);
         nanoDb.insert(designDocument, designName, function(error, body) {
@@ -84,7 +98,7 @@ function designDocs(router, nano, dbName) {
 
         console.log('Design Doc Called');
 
-        var designName = '_design/npcs';
+        var designName = '_design/states';
         var designDocument = {
             'views': {
                 'docBulk': {
@@ -93,13 +107,19 @@ function designDocs(router, nano, dbName) {
                 'docIdDoc': {
                     'map': docIdDoc
                 },
-                'docNpcsCapital': {
-                    'map': docNpcsCapital
+                'docStateCapital': {
+                    'map': docStateCapital
                 },
-                'docNpcsDoc': {
-                    'map': docNpcsDoc
+                'docStatesDoc': {
+                    'map': docStatesDoc
                 }
-
+                /*,
+                                "viewStatesDoc" : {
+                                    "map" : viewStatesDoc
+                                },
+                                "docStatesHtml" : {
+                                    "map" : docStatesHtml
+                                }*/
             }
         };
 

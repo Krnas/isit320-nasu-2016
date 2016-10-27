@@ -71,12 +71,12 @@ queryController.readOne = function($q) {
 
 queryController.viewOneDoc = function($q) {
     'use strict';
-    return runQuery('/viewOneDoc?designDoc=states&view=docStatesDoc', $q);
+    return runQuery('/viewOneDoc?designDoc=npcs&view=docNpcsDoc', $q);
 };
 
 queryController.viewBulkAngular = function($q) {
     'use strict';
-    return runQuery('/viewStateCapitalAngular?designDoc=states&view=docStateCapital', $q);
+    return runQuery('/viewStateCapitalAngular?designDoc=npcs&view=docNpcsCapital', $q);
 };
 
 var nameController = myModule.controller('NameController', function($scope, databaseName, allDbs) {
