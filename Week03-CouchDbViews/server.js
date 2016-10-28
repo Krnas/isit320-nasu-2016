@@ -86,14 +86,15 @@ function coreDataInsert() {
  };
  
  var designUrls = function(doc) {
-     var url, key;
+     var url;
+     var key;
      if (doc.item && doc.urls) {
          for (var urlName in doc.urls) {
              url = doc.urls[urlName];
              key = [doc.item, url];
              emit(key, url);
          };
-     }
+     };
  }
 
  function createDesignDocument() {
@@ -154,7 +155,7 @@ function list() {
     }];
 
     inquirer.prompt(options).then(function(answer) {
-        console.log("Response:", answer);
+        console.log('Response:', answer);
         switch (answer.theme) {
             case prompts[READ]:
                 console.log(prompts[READ]);
@@ -168,7 +169,7 @@ function list() {
 
             case prompts[DELETE]:
                 console.log(prompts[DELETE]);
-                deleteDoc("_design/example");
+                deleteDoc('_design/example');
                 break;
 
             case prompts[INSERT]:
@@ -179,11 +180,11 @@ function list() {
             case prompts[VIEW]:
                 console.log(prompts[VIEW]);
                 //showView("example", "prices");
-                showView("example", "simple");
+                showView('example', 'simple');
                 break;
 
             default:
-                console.log("No match");
+                console.log('No match');
 
         }
     });
