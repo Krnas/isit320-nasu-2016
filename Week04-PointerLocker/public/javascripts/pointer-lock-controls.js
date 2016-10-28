@@ -1,6 +1,6 @@
 define(['floor', 'PointerLockControls'], function (Floor, PointerLockControls) {
-
-    var PointerLockControls = function (camera, threeInit) {
+    'use strict';
+     PointerLockControls = function (camera, threeInit) {
 
         var scope = this;
         var THREE = threeInit;
@@ -137,7 +137,7 @@ define(['floor', 'PointerLockControls'], function (Floor, PointerLockControls) {
 
                 return v;
 
-            }
+            };
 
         }();
 
