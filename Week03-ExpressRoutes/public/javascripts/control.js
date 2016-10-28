@@ -16,7 +16,7 @@ $(document).ready(function() {
 
     function read() {
         console.log('callRead called');
-        foo();
+        
         $.getJSON('/read', function(result) {
             console.log(result);
             $('#display').html(JSON.stringify(result));
