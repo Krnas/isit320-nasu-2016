@@ -56,15 +56,15 @@ function designDocs(router, nano, dbName) {
             });
             emit(doc.docs[0].abbreviation, data);
         }
+        nanoDb.insert(npcs, docName, function(err, body) {
+            if (!err) {
+                console.log(body);
+            } else {
+                console.log(err);
+            }
+        });
     };
 
-    nanoDb.insert(npcs, docName, function(err, body) {
-        if (!err) {
-            console.log(body);
-        } else {
-            console.log(err);
-        }
-    });
     function createDesignDocument(designDocument, designName, response) {
         var nanoDb = nano.db.use(dbName);
         nanoDb.insert(designDocument, designName, function(error, body) {

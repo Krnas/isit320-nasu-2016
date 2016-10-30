@@ -1,23 +1,23 @@
 requirejs.config({
-    baseUrl : '.',
-    paths : {
-        "jquery" : 'components/jquery/dist/jquery',
+    baseUrl: '.',
+    paths: {
+        'jquery': 'components/jquery/dist/jquery',
 
-        "Three" : 'javascripts/three',
-        "control" : 'javascripts/control',
-        "floor": 'javascripts/floors',
-        "PointerLockControls": 'javascripts/pointer-lock-controls',
-        "PointerLockSetup": 'javascripts/pointer-lock-setup'
+        'Three': 'javascripts/three',
+        'control': 'javascripts/control',
+        'floor': 'javascripts/floors',
+        'PointerLockControls': 'javascripts/pointer-lock-controls',
+        'PointerLockSetup': 'javascripts/pointer-lock-setup'
 
     },
-    shim : {
-        'Three' : {
+    shim: {
+        'Three': {
             exports: 'THREE'
         }
     }
 });
 
-requirejs([ 'jquery'], function($) {
+requirejs(['jquery'], function($) {
     'use strict';
     requirejs(['Three', 'control'], function(THREE, Control) {
         $(document).ready(function() {
