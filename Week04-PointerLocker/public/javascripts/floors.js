@@ -5,7 +5,7 @@ define([require], function() {
     var THREE = null;
 
     function Floors(threeInit) {
-        THREE=threeInit;
+        THREE = threeInit;
     }
 
     function makeFloor() {

@@ -1,6 +1,6 @@
-define(['floor', 'PointerLockControls'], function (Floor, PointerLockControls) {
+define(['floor', 'PointerLockControls'], function(Floor, PointerLockControls) {
     'use strict';
-     PointerLockControls = function (camera, threeInit) {
+    PointerLockControls = function(camera, threeInit) {
 
         var scope = this;
         var THREE = threeInit;
@@ -28,7 +28,7 @@ define(['floor', 'PointerLockControls'], function (Floor, PointerLockControls) {
 
         var PI_2 = Math.PI / 2;
 
-        var onMouseMove = function (event) {
+        var onMouseMove = function(event) {
 
             if (scope.enabled === false) return;
 
@@ -42,7 +42,7 @@ define(['floor', 'PointerLockControls'], function (Floor, PointerLockControls) {
 
         };
 
-        var onKeyDown = function (event) {
+        var onKeyDown = function(event) {
 
             switch (event.keyCode) {
 
@@ -75,7 +75,7 @@ define(['floor', 'PointerLockControls'], function (Floor, PointerLockControls) {
 
         };
 
-        var onKeyUp = function (event) {
+        var onKeyUp = function(event) {
 
             switch (event.keyCode) {
 
@@ -109,27 +109,27 @@ define(['floor', 'PointerLockControls'], function (Floor, PointerLockControls) {
 
         this.enabled = false;
 
-        this.getObject = function () {
+        this.getObject = function() {
 
             return yawObject;
 
         };
 
-        this.isOnObject = function (boolean) {
+        this.isOnObject = function(boolean) {
 
             isOnObject = boolean;
             canJump = boolean;
 
         };
 
-        this.getDirection = function () {
+        this.getDirection = function() {
 
             // assumes the camera itself is not rotated
 
             var direction = new THREE.Vector3(0, 0, -1);
             var rotation = new THREE.Euler(0, 0, 0, "YXZ");
 
-            return function (v) {
+            return function(v) {
 
                 rotation.set(pitchObject.rotation.x, yawObject.rotation.y, 0);
 
@@ -141,7 +141,7 @@ define(['floor', 'PointerLockControls'], function (Floor, PointerLockControls) {
 
         }();
 
-        this.update = function () {
+        this.update = function() {
 
             if (scope.enabled === false) return;
 

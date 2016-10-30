@@ -1,5 +1,5 @@
 define(['floors'], function(Floors) {
-
+    'use strict';
     var scene = null;
     var camera = null;
     var renderer = null;
@@ -125,7 +125,7 @@ define(['floors'], function(Floors) {
     }
 
     function addSphere(sne, camera, wireFrame, x, y) {
-        var geometry = new THREE.SphereGeometry(.5, 25, 25);
+        var geometry = new THREE.SphereGeometry(0.5, 25, 25);
         var material = new THREE.MeshNormalMaterial({
             wireframe: wireFrame
         });
