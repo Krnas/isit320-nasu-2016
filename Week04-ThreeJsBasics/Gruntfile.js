@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
-                    '**/node_modules/**', '**/components/**'
+                    '**/node_modules/**', '**/three.js', '**/components/**'
                 ],
                 reporter: require('jshint-stylish'),
                 strict: true,
