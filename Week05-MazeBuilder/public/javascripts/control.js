@@ -1,12 +1,14 @@
 define(['floor', 'PointerLockControls', 'PointerLockSetup'], function(Floor, PointerLockControls, PointerLockSetup) {
 
     'use strict';
-    var scene = null;
+
     var camera = null;
-    var renderer = null;
+    var controls = null;
     var cubes = [];
     var raycaster = null;
+    var renderer = null;
     var THREE = null;
+    var scene = null;
     var size = 20;
 
     var keyMove = {
