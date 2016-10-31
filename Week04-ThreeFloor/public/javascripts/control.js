@@ -140,9 +140,10 @@ define(['floors'], function(Floors) {
 
     function addCube(scene, camera, wireFrame, x, z) {
         var geometry = new THREE.BoxGeometry(1, 1, 1);
-
+        var loader = new THREE.TextureLoader();
+        var floorTexture = loader.load('images/crate.jpg');
         var material = new THREE.MeshLambertMaterial({
-            map: THREE.ImageUtils.loadTexture('images/crate.jpg')
+            map: floorTexture
         });
         var cube = new THREE.Mesh(geometry, material);
         cube.position.set(x, 0, z);
