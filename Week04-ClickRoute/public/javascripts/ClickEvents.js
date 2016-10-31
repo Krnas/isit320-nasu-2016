@@ -21,7 +21,7 @@ define(['jquery'], function(jquery) {
 
             var theRoute = '/Item01';
             $.getJSON(theRoute, function(result) {
-                $('#message').html(JSON.stringify(sum));
+                $('#message').html(JSON.stringify(result));
             });
 
         };

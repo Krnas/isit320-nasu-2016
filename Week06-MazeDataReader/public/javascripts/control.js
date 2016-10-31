@@ -1,5 +1,5 @@
 define(['floor', 'PointerLockControls', 'PointerLockSetup'], function(Floor, PointerLockControls, PointerLockSetup) {
-
+    'use strict';
     var scene = null;
     var camera = null;
     var controls;
@@ -238,9 +238,9 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup'], function(Floor, Poi
         var loader = new THREE.TextureLoader();
         var floorTexture = loader.load('images/crate.jpg');
         $.getJSON('grid000.json', function (grid) {
-            for (var i = 0; i < grid.length; j++) {
+            for (var i = 0; i < grid.length; i++) {
                 console.log(grid[i]);
-                for (var j = 0; j < grid.length; i++) {
+                for (var j = 0; j < grid.length; j++) {
                     if (grid[j][i] == 1) {
 
                         addCube(scene, camera, wireFrame, j * size, -(i * size), floorTexture);

@@ -7,6 +7,7 @@ var ARDUINO = 'arduino';
 var BEAGLEBONE = 'beaglebone';
 
 var readIt = function(docName) {
+    'use strict';
     var prog = nano.db.use(dbName);
     prog.get(docName, {
         revs_info: true
@@ -18,20 +19,21 @@ var readIt = function(docName) {
 };
 
 function insert(data) {
+    'use strict';
     nano.db.create(dbName);
     var prog = nano.db.use(dbName);
 
     for (var i = 0; i < data.length; i++) {
-        prog.insert(data[i], function(err, body) {
-            if (!err) {
-                console.log(body);
-                readIt();
-            }
-        });
+        prog.insert(data[i]);
+    }
+    if (!err) {
+        console.log(body);
+        readIt();
     }
 }
 
 function deleteDoc(docUniqueId) {
+    'use strict';
     var db = nano.db.use(dbName);
     db.get(docUniqueId, function(err, body) {
         if (!err) {
@@ -46,6 +48,7 @@ function deleteDoc(docUniqueId) {
 }
 
 function coreDataInsert() {
+    'use strict';
     var data = [{
             '_id': RASPBERRY_PI,
             'item': RASPBERRY_PI,
@@ -80,42 +83,46 @@ function coreDataInsert() {
 /*******************************
  * Views
  *******************************/
- 
- var simpleView = function(doc) {
-     emit(doc._id, doc._rev);
- };
- 
- var designUrls = function(doc) {
-     var url;
-     var key;
-     if (doc.item && doc.urls) {
-         for (var urlName in doc.urls) {
-             url = doc.urls[urlName];
-             key = [doc.item, url];
-             emit(key, url);
-         };
-     };
- }
 
- function createDesignDocument() {
-     var data = [{
-         '_id': '_design/example',
-         'views': {
-             'simple': {
-                 'map': simpleView
-             },
-             'urls': {
-                 'map': designUrls
-             }
-         },
-     }];
-     insert(data);
- }
+var simpleView = function(doc) {
+    'use strict';
+    emit(doc._id, doc._rev);
+};
+
+var designUrls = function(doc) {
+    'use strict';
+    var url;
+    var key;
+    if (doc.item && doc.urls) {
+        for (var urlName in doc.urls) {
+            url = doc.urls[urlName];
+            key = [doc.item, url];
+            emit(key, url);
+        }
+    }
+};
+
+function createDesignDocument() {
+    'use strict';
+    var data = [{
+        '_id': '_design/example',
+        'views': {
+            'simple': {
+                'map': simpleView
+            },
+            'urls': {
+                'map': designUrls
+            }
+        },
+    }];
+    insert(data);
+}
 
 function showView(designDoc, view) {
+    'use strict';
     var nanoDb = nano.db.use(dbName);
     nanoDb.view(designDoc, view, function(err, body) {
-        if (!err) {                        
+        if (!err) {
             for (var i = 0; i < body.rows.length; i++) {
                 console.log(body.rows[i].key);
             }
