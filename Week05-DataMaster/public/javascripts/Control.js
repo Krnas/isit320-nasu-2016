@@ -4,7 +4,7 @@
 
 var myModule = angular.module('myModule', ['ngRoute']);
 
-var queryController = myModule.controller('QueryController',    
+var queryController = myModule.controller('QueryController',
     function($scope, result) {
         'use strict';
         if (result.ok) {
@@ -46,12 +46,12 @@ queryController.create = function($q) {
 
 queryController.statesBulk = function($q) {
     'use strict';
-    return runQuery('/insertBulk?fileName=States.json', $q);
+    return runQuery('/insertBulk?fileName=Npcs.json', $q);
 };
 
 queryController.statesOneDoc = function($q) {
     'use strict';
-    return runQuery('/insertFile?fileName=States.json&id=oneDoc', $q);
+    return runQuery('/insertFile?fileName=Npcs.json&id=oneDoc', $q);
 };
 
 queryController.design = function($q) {
@@ -61,12 +61,12 @@ queryController.design = function($q) {
 
 queryController.viewBulk = function($q) {
     'use strict';
-    return runQuery('/viewBulk?designDoc=states&view=docBulk', $q);
+    return runQuery('/viewBulk?designDoc=npcs&view=docBulk', $q);
 };
 
 queryController.readOne = function($q) {
     'use strict';
-    return runQuery('/read?docName=statesDoc', $q);
+    return runQuery('/read?docName=npcObjects', $q);
 };
 
 queryController.viewOneDoc = function($q) {

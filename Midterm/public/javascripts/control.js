@@ -1,14 +1,15 @@
 define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions'], function(Floor, PointerLockControls, PointerLockSetup, Collisions) {
 'use strict';
-    var scene = null;
+
     var camera = null;
     var collisions;
     var controls;
     var cubes = [];
     var npcs = [];
-    var renderer = null;
     var raycaster = null;
+    var renderer = null;
     var THREE = null;
+    var scene = null;
     var size = 20;
 
     var keyMove = {
@@ -155,6 +156,10 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions'], funct
                     }
                 }
             }
+            var dataReaders = new DataReaders();
+            dataReaders.readDatabase(function(docs){
+                npcs.readNpcGrid(scene, wireFrame, docs);
+            });
 
         });
         //addSphere(scene, camera, wireFrame, size, size * -6)
