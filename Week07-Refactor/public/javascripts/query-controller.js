@@ -1,4 +1,4 @@
-define(['runquery'], function(runQuery){
+define(['runQuery'], function(runQuery){
     function queryController() {
         'use strict';
         if (result.ok) {

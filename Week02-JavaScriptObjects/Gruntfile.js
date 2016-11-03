@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 
         clean: {
             work: {
-                src: ['**/node_modules/**', 'result.xml']
+                src: ['**/node_modules/**']
             },
 
             zip: {

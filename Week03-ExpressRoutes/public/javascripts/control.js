@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    'use strict';
     console.log('Document loaded');
 
     $('#read').click(read);
@@ -6,7 +7,7 @@ $(document).ready(function() {
 
     function read() {
         console.log('callRead called');
-        
+
         $.getJSON('/read', function(result) {
             console.log(result);
             $('#display').html(JSON.stringify(result));
@@ -20,6 +21,7 @@ $(document).ready(function() {
             $('#display').html(JSON.stringify(result));
         });
     }
+
     function add() {
         var operatorA = $('#operatorA').val();
         var operatorB = $('#operatorB').val();
@@ -36,5 +38,3 @@ $(document).ready(function() {
         });
     }
 });
-
-

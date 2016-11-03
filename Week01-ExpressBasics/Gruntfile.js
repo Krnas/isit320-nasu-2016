@@ -23,19 +23,26 @@ module.exports = function(grunt) {
                 src: ['**/node_modules/**', '**/components/**']
             }
         },
-      jscs: {
-			src: ['**/*.js', '!**/bitly-links.js'],
-			options: {
-				config: '.jscsrc'
-			}
+
+        jscs: {
+            src: '**/*.js',
+            options: {
+                config: '.jscsrc'
+            }
         },
 
         'jsbeautifier': {
-            files: ['**/*.js', '!**/node_modules/**', '!**/components/**', '!**/platforms/**'],
+            files: ['**/*.js', '!**/node_modules/**', '!**/components/**'],
             options: {
                 'indentSize': 4
             }
         },
+
+        karma: {
+            karma: {
+                configFile: 'karma.conf.js'
+            }
+        }
 
     });
 
@@ -43,7 +50,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-jsbeautifier');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.registerTask('beautify', ['jsbeautifier']);
     grunt.registerTask('check', ['beautify', 'jscs', 'jshint']);
+    grunt.registerTask('test', ['jshint', 'karma']);
 };
-
