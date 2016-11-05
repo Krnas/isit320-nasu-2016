@@ -1,8 +1,9 @@
-var Score = function() {
-    var mainCharacter= {
-        name: "Robin",
-        value: 15
+ var score = npcData
+        var mainCharacter= {
+            name: "Robin",
+            value: 15
     };
-};
+
+
 
 
