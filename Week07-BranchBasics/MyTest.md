@@ -1,5 +1,4 @@
-$ cat MyTest.md
-## New Test Section
+## New Test Infection
 
 This is my test document.
 
