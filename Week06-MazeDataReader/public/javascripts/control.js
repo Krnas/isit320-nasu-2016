@@ -220,8 +220,8 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup'], function(Floor, Poi
     function addCube(camera, wireFrame, x, z, floorTexture) {
         var geometry = new THREE.BoxGeometry(size, size, size);
 
-        //var loader = new THREE.TextureLoader();
-        //var floorTexture = loader.load('images/crate.jpg');
+        var loader = new THREE.TextureLoader();
+        var floorTexture = loader.load('images/crate.jpg');
         var material = new THREE.MeshLambertMaterial({
             map : floorTexture
         });
