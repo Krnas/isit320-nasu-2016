@@ -17,6 +17,7 @@ function ensureAuthenticated(req, res, next) {
 
 router.get('/account', ensureAuthenticated, function(request, response) {
     'use strict';
+    console.log(request.user);
     response.render('profile-google', {
         title: 'Google Account',
         user: request.user
@@ -24,7 +25,7 @@ router.get('/account', ensureAuthenticated, function(request, response) {
 });
 
 passport.use(new GoogleStrategy({
-        clientId:'1055371331398-tpdqsu96dfn2ugcjunab7qnp82jdhnk3.apps.googleusercontent.com',
+        clientID:'1055371331398-tpdqsu96dfn2ugcjunab7qnp82jdhnk3.apps.googleusercontent.com',
         clientSecret: 'HKAr54Mf8CIPMPqVm7-C8Dyv',
         callbackURL: 'http://localhost:30025/auth/google/callback',
         passReqToCallback: true
