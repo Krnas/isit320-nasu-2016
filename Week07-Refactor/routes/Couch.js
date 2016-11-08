@@ -11,7 +11,7 @@ var servers = ['http://168.156.47.143:5984'];
 var serverIndex = 0;
 var nano = require('nano')(servers[serverIndex]);
 
-var dbName = 'couch-views-calvert';
+var dbName = 'game_data_nasu';
 
 
 var database = require('./CouchDatabase')(router, nano, dbName);
