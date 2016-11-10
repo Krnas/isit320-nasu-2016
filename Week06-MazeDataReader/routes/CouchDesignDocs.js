@@ -25,7 +25,7 @@ function designDocs(router, nano, dbName) {
     };
 
     var docNpcsCapital = function(doc) {
-        if (doc._id=== 'npcObjects') {
+        if (doc._id === 'npcObjects') {
             var data = [];
             doc.docs.forEach(function(npcs) {
                 data.push({

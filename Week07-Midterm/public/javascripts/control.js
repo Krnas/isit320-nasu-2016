@@ -1,5 +1,5 @@
 define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions'], function(Floor, PointerLockControls, PointerLockSetup, Collisions) {
-'use strict';
+    'use strict';
 
     var camera = null;
     var collisions;
@@ -157,7 +157,7 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions'], funct
                 }
             }
             var dataReaders = new DataReaders();
-            dataReaders.readDatabase(function(docs){
+            dataReaders.readDatabase(function(docs) {
                 npcs.readNpcGrid(scene, wireFrame, docs);
             });
 

@@ -1,11 +1,12 @@
 define(function() {
     'use strict';
     var THREE;
-    function  Collisions(threeInit) {
+
+    function Collisions(threeInit) {
         THREE = threeInit;
     }
 
-    Collisions.prototype.collisionDetection  = function(controls, cubes) {
+    Collisions.prototype.collisionDetection = function(controls, cubes) {
 
         function bounceBack(position, ray) {
             position.x -= ray.bounceDistance.x;

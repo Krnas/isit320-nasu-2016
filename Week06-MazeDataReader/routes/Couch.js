@@ -62,7 +62,7 @@ router.get('/deleteDb', function(request, response) {
     nano.db.destroy(dbName, function(err, body) {
         if (err) {
             console.log(err);
-            response.status(err.statusCode).send(err)
+            response.status(err.statusCode).send(err);
         } else {
             response.send(body);
         }
