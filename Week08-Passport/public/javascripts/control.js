@@ -1,8 +1,8 @@
 var Control = (function() {
 
     function Control() {
-        console.log("Control constructor called");
-        $("#info").click(info);
+        console.log('Control constructor called');
+        $('#info').click(info);
     }
 
     var info = function() {

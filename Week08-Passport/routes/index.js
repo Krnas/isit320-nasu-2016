@@ -44,4 +44,3 @@ router.get('/status', function(request, response) {
 });
 
 module.exports = router;
-
