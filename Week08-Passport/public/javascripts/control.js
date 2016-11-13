@@ -1,6 +1,8 @@
 var Control = (function() {
+    'use strict';
 
     function Control() {
+
         console.log('Control constructor called');
         $('#info').click(info);
     }
@@ -15,5 +17,6 @@ var Control = (function() {
 }());
 
 $(document).ready(function() {
+    'use strict';
     var control = new Control();
 });
