@@ -11,7 +11,7 @@ var Control = (function() {
         $.getJSON('/info', function(result) {
             $('#Username').html(JSON.stringify(result));
             $('#name').html(JSON.stringify(result));
-            $('ID').html(JSON.stringify(result));
+            $('#ID').html(JSON.stringify(result));
         });
         // WRITE AN AJAX OR GET JSON METHOD THAT CALLS THE /info ROUTE AND DISPLAYS THE RESULT
         // THIS SHOULD INCLUDE THE USER INFORMATION SHOWN BELOW IN MY GOOGLE ACCOUNT SCREENSHOT
