@@ -50,5 +50,39 @@ define(function() {
 
         return false;
     };
+    var foundSpot = {
+        x : - 1 ,
+        z : - 1
+    };
+    Collisions. prototype . npcDetection = function (x, z, npcList) {
+        function getCoords(name) {
+            var result = name. split ( '_' );
+            return {
+                x : parseInt ( result [ 1 ]),z : parseInt ( result [ 2 ])
+            };
+        }
+// Keep a list of your NPCs.
+// Create a method that takes the current
+// position of the camera in grid coordinates
+// Iterate over the list and see if an NPC is at
+// the same coordinates as the camera/mainCharacter.
+// If there is a collision, tell the user about it.
+        for ( var i = 0 ; i < npcList. length ; i ++) {
+            var npc = npcList[ i ];
+            var coordinates = getCoords( npc . name );
+            if ( coordinates . x === x && coordinates . z === z) {
+                $( '#npcDescription' ).html( npc . doc . description );
+                foundSpot . x = x;
+                foundSpot . z = z;
+                return true ;
+            }
+        }
+// Check if we moved past the square where we
+// found the NPC.
+        if ( foundSpot . x !== x || foundSpot . z !== z) {
+            $( '#npcDescription' ).html( ' None' );
+        }
+        return false ;
+    };
     return Collisions;
 });
