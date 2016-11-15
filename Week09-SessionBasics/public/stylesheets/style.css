@@ -7,11 +7,14 @@ a {
   color: #00B7FF;
 }
 
-button {
-  margin: 5px;
-}
-
 div {
   margin: 5px;
 }
 
+button {
+  margin: 5px;
+}
+
+pre {
+  font-size: large;
+}
