@@ -21,7 +21,7 @@ $(document).ready(function () {
     function showPage(pageRoute) {
         $.getJSON(pageRoute, function (data) {
             var info = JSON.stringify(data, null, 4);
-            console.log(data);
+            console.log(info);
             $('#display').html(JSON.stringify(data, null, 4))
             .fail(function(jq, status, error) {
                 $('#displayArea').html('error: ' + jq.responseText);
@@ -34,7 +34,7 @@ $(document).ready(function () {
     function viewPage(pageRoute) {
         $.getJSON(pageRoute, function (data) {
             var info = JSON.stringify(data, null, 4);
-            console.log(data);
+            console.log(info);
             $('#display').html(JSON.stringify(data, null, 4))
                 .fail(function(jq, status, error) {
                     $('#displayArea').html('error: ' + jq.responseText);

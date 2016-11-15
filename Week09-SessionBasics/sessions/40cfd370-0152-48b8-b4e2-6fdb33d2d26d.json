@@ -1,1 +1,1 @@
-{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"views":{"/":4},"__lastAccess":1479171569847}
+{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"views":{"/":5,"/page01":4,"/page02":3,"/page03":3,"/views/page01":5,"/views/page02":4},"__lastAccess":1479173253568,"lastPage":"/page01"}
