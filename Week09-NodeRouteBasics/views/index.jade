@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  div
+    input#milesInput(type="text")
+  div
+    button#feetToMiles.btn.btn-primary.btn-lg Feet To Miles
+
+  pre#debug
