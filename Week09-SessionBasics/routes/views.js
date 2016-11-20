@@ -14,3 +14,43 @@ module.exports = (function() {
     });
     return router;
 })();
+
+router.get('/file-store', function(request, response, next) {
+    if (request.session.viewCount) {
+        request.session.viewCount++;
+        response.send({
+            viewCount: request.session.viewCount
+        });
+    } else {
+        request.session.viewCount = 1;
+        response.send({
+            'hello': 'Click another button and return here!'
+        });
+    }
+});
+
+router.get('/request', function(request, response, next) {
+
+    var requester = {
+        cookies: request.cookies,
+        signedCookies: request.signedCookies,
+        originalUrl: request.originalUrl,
+        baseUrl: request.baseUrl,
+        url: request.url,
+        method: request.method,
+        secret: request.secret || 'undefined',
+        sessionID: request.sessionID,
+        route: request.route
+    };
+    console.log('==========================');
+    for (var foo in request.connection) {
+        if (request.hasOwnProperty(foo)) {
+            console.log(foo);
+        }
+    }
+    console.log('==========================');
+    console.log(requester);
+    response.send({
+        request: requester
+    });
+});
