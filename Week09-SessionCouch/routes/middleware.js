@@ -20,8 +20,8 @@ router.use(function(request, response, next) {
 couch session
  ************/
 var session = require('express-session'),
-    connect = require('connect');
-ConnectCouchDB = require('connect-couchdb')(session);
+    connect = require('connect'),
+    ConnectCouchDB = require('connect-couchdb')(session);
 
 var couchServers = ['168.156.47.51'];
 var couchStore = new ConnectCouchDB({
