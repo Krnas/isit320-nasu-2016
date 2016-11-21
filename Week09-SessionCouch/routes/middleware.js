@@ -19,12 +19,11 @@ router.use(function(request, response, next) {
 /************
 couch session
  ************/
-var session = require('express-session'),
-    connect = require('connect'),
-    ConnectCouchDB = require('connect-couchdb')(session);
+var connect = require('connect');
+var ConnectCouchDB = require('connect-couchdb')(session);
 
 var couchServers = ['168.156.47.51'];
-var couchStore = new ConnectCouchDB({
+var CouchStore = new ConnectCouchDB({
     // Name of the database you would like to use for sessions.
     name: 'couch-session-nasu',
 
@@ -55,7 +54,7 @@ router.use(session({
     secret: process.env.SESSION_SECRET || 'keyboard cat',
     resave: true,
     saveUninitialized: true,
-    store: new couchStore()
+    store: new CouchStore()
 }));
 router.use(function(request, response, next) {
     'use strict';
@@ -75,5 +74,25 @@ router.use(function(request, response, next) {
 
     next();
 });
+
+var sessionStore = sessionstore.createSessionStore({
+    type: 'couchdb',
+    host: 'http://192.168.2.19', // optional
+    port: 5984, // optional
+    dbName: 'sessionstore-calvert', // optional
+    collectionName: 'sessions', // optional
+    timeout: 10000 // optional
+});
+
+router.use(session({
+    genid: function(req) {
+        'use strict';
+        return uuid.v4(); // use UUIDs for session IDs
+    },
+    secret: process.env.SESSION_SECRET || 'keyboard cat',
+    resave: true,
+    saveUninitialized: true,
+    store: sessionStore
+}));
 
 module.exports = router;
