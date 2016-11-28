@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  mixin littleMenu
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        // Brand
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button',
+          data-toggle='collapse',
+          data-target='#bs-example-navbar-collapse-1',
+          aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+          a.navbar-brand(href='/')
+            img(alt='Elvenware', src='favicon.png')
+        // Nav Links
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li#basics-menu
+              a.togglePageClick(href='/basics-page')
+                | Basics
+                span.sr-only (current)
+            li#database-menu
+              a.togglePageClick(href="/database-page") Database
+            li#authentication-menu
+              a.togglePageClick(href="/authentication-page") Authentication
+  div
+    button.panel.panel-default#basics-page
+    button.panel.panel-default#database-page
+    button.panel.panel-default#authentication-page
+  div
+    button.btn.btn-primary#page01 Page 1
+    button.btn.btn-primary#page02 Page 2
+    button.btn.btn-primary#page03 Page 3
+
+  div
+    button.btn.btn-primary#viewPage01 View Page 01 Hits
+    button.btn.btn-primary#viewPage02 View Page 02 Hits
+
+  div
+    button.btn.btn-info#designDoc Insert Design Doc
+    button.btn.btn-info#sessionView View Sessions
+
+  div
+    pre#display
+

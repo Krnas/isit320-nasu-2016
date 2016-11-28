@@ -7,6 +7,8 @@ $(document).ready(function() { 'use strict';
             var output = JSON.stringify(result, null, 4);
             console.log(output);
             $('#debug').html(output);
-        })
+        });
+
     });
+
 });
