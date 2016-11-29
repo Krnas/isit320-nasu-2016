@@ -1,0 +1,25 @@
+var myObject = {
+	display: function(value) {
+	var footype = typeof value;
+	console.log(value);
+	console.log(footype);
+	}
+	};
+
+function MyFunctionObject() {
+	MyFunctionObject.prototype.display = function(value) {
+	var footype = typeof value;
+	console.log(value;
+	console.log(footype);
+	bar();
+	}
+	}
+	
+var foo = "Foobar";
+var obj = new MyFunctionObject();
+obj.display(foo);
+foo = 3.5;
+myObject.display(foo);
+foo = false;
+myObject.display(foo);
+myObject.display(obj.displey);
