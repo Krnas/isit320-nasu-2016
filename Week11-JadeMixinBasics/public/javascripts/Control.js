@@ -6,10 +6,5 @@ $(document).ready(function() {
            JSON.stringify(result, null, 4);
        });
    });
-    $('#aboutButton').click(function () {
-        console.log('Clicked on about');
-        $.getJSON('/about', function (result) {
-            JSON.stringify(result, null, 4);
-        });
-    })
+
 });
