@@ -9,7 +9,8 @@ router.get('/', function(req, res) {
         title: 'Express'
     });
 });
-router.get('/foo', function (request, response) {
+router.get('/foo', function(request, response) {
+    'use strict';
     console.log(request.query);
     response.send(request.query);
 });
