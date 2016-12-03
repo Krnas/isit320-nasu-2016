@@ -1,32 +1,22 @@
-$(document).ready(function() { 'use strict';
-    $("#target").submit(function(event) {
-        event.preventDefault();
-        var userFormData = $(this).serialize();
-        $('#formResults').html(userFormData);
-        $.getJSON('/foo?' + userFormData, function(result) {
-            var resultString = JSON.stringify(result, null, 4);
-            $('#serverResults').html(resultString);
+define(['Route', 'queryController', 'aboutController'],
+    function(Route, queryController, aboutController) {
+        'use strict';
+
+        var findRoutes = (function($routeProvider) {
+            $routeProvider.when('/home', {
+                templateUrl: '/home',
+                controller: queryController
+            }).when('/about', {
+                templateUrl: '/about',
+                controller: aboutController,
+                resolve: {
+                    result: aboutController.about
+                }
+            }).otherwise({
+                redirectTo: '/home'
+            });
         });
+
+        return findRoutes;
+
     });
-    $('nav li').hover(function(event) {
-        setActiveMenuItem(event.currentTarget.id);
-    });
-
-
-    function setActiveMenuItem() {
-
-        $(".nav li").removeClass("active");
-
-        // var menuItem = $('a[href=".' + this.location.pathname + '"]');
-        var name = this.location.pathname;
-        var name = name.slice(1, name.length).trim();
-        if (name.length === 0) { name = 'home'; }
-        var selector = '#' + name;
-        try {
-            var menuItem1 = $(selector);
-            menuItem1.addClass('active');
-        } catch(e) {
-            // console.log('Could not find selector. This is expected when testing.', e);
-        }
-    }
-});
