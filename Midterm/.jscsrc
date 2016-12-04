@@ -1,0 +1,7 @@
+{
+    "preset": "google",
+    "validateIndentation": 4,
+    "excludeFiles": ["**/node_modules/**","**/three.js", "**/components/**", "**/bower_components/**", "**/pointer-lock-controls.js"],
+    "requireCamelCaseOrUpperCaseIdentifiers": false,
+    "maximumLineLength": 200
+}

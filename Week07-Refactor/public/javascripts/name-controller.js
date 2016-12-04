@@ -7,18 +7,12 @@ define(['runQuery'], function (runQuery) {
         if (query=='/databaseName'){
             debug.html(data.currentDatabaseName);
         }
-        else if (query!=='/databaseName'){
-            $scope.data=JSON.stringify(data.requestFailed, null, 4);
-        }
-        else {
-            $score.data=data;
-        }
-        $scope.docs=JSON.stringify(data.docs, null, 4);
         // YOU WRITE THE REST OF THE CODE
         // YOU NEED TO HANDLE WHAT HAPPENS WHEN
         // EITHER THE databaseName METHOD IS CALLED
         // OR WHEN THE allDbs METHOD IS CALLED
         // VERY SIMILAR TO queryController, but simpler.
+        else if (query=='allDb')
     };
 
     nameController.databaseName = function ($q) {
