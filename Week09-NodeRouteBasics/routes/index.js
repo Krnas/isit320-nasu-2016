@@ -10,4 +10,10 @@ router.get('/feetToMiles', function(request, response) {
   var miles = parseInt(request.query.miles) / 5280;
   response.send({result: 'success', ok: true, milesEntered: miles});
 });
+
+router.get('/calculateCircumference', function(request, response) {
+  console.log(request.query);
+  var radius = parseInt(request.query.Circumference = 2 * radius * Math.PI);
+  response.send({result: 'success', ok: true, radiusEntered: radius});
+});
 module.exports = router;
