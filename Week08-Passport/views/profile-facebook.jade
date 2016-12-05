@@ -5,9 +5,31 @@ block content
 
     p Welcome to #{title}
 
-    p UserName:
-        span#Username #{user.username}
-    p Name:
-        span#name #{user.displayName}
-    p ID:
-        span#ID #{user.id}
+
+
+    .container
+
+        .panel.panel-default
+            .panel-heading Photo
+            .panel-body
+                img(src= user.photos[0].value)
+
+        .panel.panel-default
+            .panel-heading Basics
+            .panel-body
+                label(for='adisplay') Display Name
+                p#adisplay #{user.displayName}
+
+
+                label(for='userName') User Name
+                p#userName #{user._json.name}
+
+
+                label(for='userId') User Id
+                p#userId  #{user.id}
+
+
+        .panel.panel-default
+            .panel-heading Basics
+            .panel-body
+                pre= userInfo
