@@ -6,16 +6,21 @@ module.exports = (function() {
     'use strict';
 
     router.get('/page01', function(request, response, next) {
-        response.send({result: 'you viewed this page ' + request.session.views['/views/page01'] + ' times'});
+        response.send({
+            result: 'you viewed this page ' + request.session.views['/views/page01'] + ' times'
+        });
     });
 
     router.get('/page02', function(request, response, next) {
-        response.send({result: 'you viewed this page ' + request.session.views['/views/page02'] + ' times'});
+        response.send({
+            result: 'you viewed this page ' + request.session.views['/views/page02'] + ' times'
+        });
     });
     return router;
 })();
 
 router.get('/file-store', function(request, response, next) {
+    'use strict';
     if (request.session.viewCount) {
         request.session.viewCount++;
         response.send({
@@ -30,7 +35,7 @@ router.get('/file-store', function(request, response, next) {
 });
 
 router.get('/request', function(request, response, next) {
-
+    'use strict';
     var requester = {
         cookies: request.cookies,
         signedCookies: request.signedCookies,

@@ -1,38 +1,25 @@
-$(document).ready(function () {
+$(document).ready(function() {
     'use strict';
 
-    $('#page01').click(function () {
+    $('#page01').click(function() {
         showPage('/page01');
     });
-    $('#page02').click(function () {
+    $('#page02').click(function() {
         showPage('/page02');
     });
-    $('#page03').click(function () {
+    $('#page03').click(function() {
         showPage('/page03');
     });
 
-    $('#viewPage01').click(function () {
+    $('#viewPage01').click(function() {
         viewPage('/views/page01');
     });
-    $('#viewPage02').click(function () {
+    $('#viewPage02').click(function() {
         viewPage('/views/page02');
     });
 
     function showPage(pageRoute) {
-        $.getJSON(pageRoute, function (data) {
-            var info = JSON.stringify(data, null, 4);
-            console.log(info);
-            $('#display').html(JSON.stringify(data, null, 4))
-            .fail(function(jq, status, error) {
-                $('#displayArea').html('error: ' + jq.responseText);
-                console.log('error: ', status);
-                console.log('error: ', error);
-            });
-
-        });
-    }
-    function viewPage(pageRoute) {
-        $.getJSON(pageRoute, function (data) {
+        $.getJSON(pageRoute, function(data) {
             var info = JSON.stringify(data, null, 4);
             console.log(info);
             $('#display').html(JSON.stringify(data, null, 4))
@@ -41,7 +28,21 @@ $(document).ready(function () {
                     console.log('error: ', status);
                     console.log('error: ', error);
                 });
-        })
+
+        });
+    }
+
+    function viewPage(pageRoute) {
+        $.getJSON(pageRoute, function(data) {
+            var info = JSON.stringify(data, null, 4);
+            console.log(info);
+            $('#display').html(JSON.stringify(data, null, 4))
+                .fail(function(jq, status, error) {
+                    $('#displayArea').html('error: ' + jq.responseText);
+                    console.log('error: ', status);
+                    console.log('error: ', error);
+                });
+        });
     }
 
 });
