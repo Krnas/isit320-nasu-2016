@@ -1,5 +1,5 @@
 define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions'], function(Floor, PointerLockControls, PointerLockSetup, Collisions) {
-    'use strict';
+'use strict';
 
     var camera = null;
     var collisions;
@@ -88,11 +88,6 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions'], funct
         // drawText(controlObject, position);
         drawText(position);
         collisions.collisionDetection(controls, cubes, raycaster);
-        var result = collisions . npcDetection ( mainCharacter . x ,
-            mainCharacter . z , npcs . npcList );
-        if ( result ) {
-            npcs . removeNpc ( mainCharacter . x , mainCharacter . z , scene );
-        }
 
         // Move the camera
         controls.update();
@@ -148,27 +143,27 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions'], funct
         return cube;
     }
 
-    function addCubes(scene, camera, wireFrame, floorTexture) {
-        $.getJSON('grid000.json', function (grid) {
+    function addCubes(scene, camera, wireFrame) {
+        var loader = new THREE.TextureLoader();
+        var floorTexture = loader.load('images/crate.jpg');
+        $.getJSON('grid000.json', function(grid) {
             for (var i = 0; i < grid.length; i++) {
-                for (var j = 0; j < grid[i].length; j++) {
+                console.log(grid[i]);
+                for (var j = 0; j < grid.length; j++) {
                     if (grid[j][i] == 1) {
-                        addCube(scene, camera, wireFrame,
-                            floorTexture, j * size, -( i * size ));
+
+                        addCube(scene, camera, wireFrame, j * size, -(i * size), floorTexture);
                     }
                 }
             }
-        }).done(function () {
-            utilities.showDebug('Grid loaded second success');
-        }).fail(function (jqxhr, textStatus, error) {
-            utilities.showDebug('Grid loaded error: ' +
-                jqxhr.status + ' ' + textStatus + ' ' + error);
-        }).always(function () {
-            utilities.showDebug('Grid loaded complete');
-        });
+            var dataReaders = new DataReaders();
+            dataReaders.readDatabase(function(docs){
+                npcs.readNpcGrid(scene, wireFrame, docs);
+            });
 
+        });
         //addSphere(scene, camera, wireFrame, size, size * -6)
-        $.getJSON('npcs000.json', function (grid) {
+        $.getJSON('npcs000.json', function(grid) {
             for (var i = 0; i < grid.length; i++) {
                 console.log(grid[i]);
                 for (var j = 0; j < grid.length; j++) {
@@ -179,26 +174,16 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions'], funct
                 }
             }
         });
-
-        var dataReaders = new DataReaders();
-        dataReaders.readDatabase(function (docs) {
-            npcs.readNpcGrid(scene, wireFrame, docs);
-        });
-
         readDataBase();
 
-        function readDataBase() {
-            $.getJSON('/read?docName=npcsDoc', function (data) {
-                console.log(JSON.stringify(data.docs, null, 4));
-            });
-        }
-
-        /*define ( function () {
-         function FindRoutes($routeProvider) {
-         }
-         return FindRoutes;
-         });*/
     }
+
+    function readDataBase() {
+        $.getJSON('/read?docName=npcsDoc', function(data) {
+            console.log(JSON.stringify(data.docs, null, 4));
+        });
+    }
+
     function addLights() {
         var light = new THREE.DirectionalLight(0xffffff, 1.5);
         light.position.set(1, 1, 1);

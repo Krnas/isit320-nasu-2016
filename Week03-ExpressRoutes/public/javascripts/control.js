@@ -4,6 +4,7 @@ $(document).ready(function() {
 
     $('#read').click(read);
     $('#readJson').click(readJson);
+    $('#add').click(add);
 
     function read() {
         console.log('callRead called');

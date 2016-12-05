@@ -1,12 +1,11 @@
 define(function() {
     'use strict';
     var THREE;
-
-    function Collisions(threeInit) {
+    function  Collisions(threeInit) {
         THREE = threeInit;
     }
 
-    Collisions.prototype.collisionDetection = function(controls, cubes) {
+    Collisions.prototype.collisionDetection  = function(controls, cubes) {
 
         function bounceBack(position, ray) {
             position.x -= ray.bounceDistance.x;
@@ -15,20 +14,20 @@ define(function() {
         }
 
         var rays = [
-
-            new THREE.Vector3(0, 0, 1),
-            new THREE.Vector3(1, 0, 1),
-            new THREE.Vector3(1, 0, 0),
-            new THREE.Vector3(1, 0, -1),
-            new THREE.Vector3(0, 0, -1),
-            new THREE.Vector3(-1, 0, -1),
-            new THREE.Vector3(-1, 0, 0),
-            new THREE.Vector3(-1, 0, 1)
+            //   Time    Degrees      words
+            new THREE.Vector3(0, 0, 1), // 0 12:00,   0 degrees,  deep
+            new THREE.Vector3(1, 0, 1), // 1  1:30,  45 degrees,  right deep
+            new THREE.Vector3(1, 0, 0), // 2  3:00,  90 degress,  right
+            new THREE.Vector3(1, 0, -1), // 3  4:30, 135 degrees,  right near
+            new THREE.Vector3(0, 0, -1), // 4  6:00  180 degress,  near
+            new THREE.Vector3(-1, 0, -1), // 5  7:30  225 degrees,  left near
+            new THREE.Vector3(-1, 0, 0), // 6  9:00  270 degrees,  left
+            new THREE.Vector3(-1, 0, 1) // 7 11:30  315 degrees,  left deep
         ];
 
         var position = controls.getObject().position;
         var rayHits = [];
-        for (var index = 0; index<rays.length; index += 1) {
+        for (var index = 0; index < rays.length; index += 1) {
 
             // Set bounce distance for each vector
             var bounceSize = 0.01;
@@ -49,34 +48,6 @@ define(function() {
         }
 
         return false;
-    };
-    var foundSpot = {
-        x: - 1,
-        z: - 1
-    };
-    Collisions.prototype.npcDetection = function (x, z, npcList) {
-        function getCoords(name) {
-            var result = name.split('_');
-            return {
-                x: parseInt(result[1]), z: parseInt(result[2])
-            };
-        }
-
-        for(var i = 0; i < npcList.length; i++) {
-            var npc = npcList[i];
-            var coordinates = getCoords(npc.name);
-            if (coordinates.x === x && coordinates.z === z) {
-                $('#npcDescription').html(npc.doc.description);
-                foundSpot.x = x;
-                foundSpot.z = z;
-                return true ;
-            }
-        }
-
-        if(foundSpot.x !== x || foundSpot.z !== z) {
-            $('#npcDescription').html(' None');
-        }
-        return false ;
     };
     return Collisions;
 });
