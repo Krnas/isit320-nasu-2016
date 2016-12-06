@@ -1,11 +1,11 @@
-var sessionStore = require('sessionstore');
+
 var express = require('express');
 var router = express.Router();
 var parseurl = require('parseurl');
 var session = require('express-session');
 var uuid = require('uuid');
-var FileStore = require('session-file-store')(session);
-
+//var FileStore = require('session-file-store')(session);
+var sessionstore = require('sessionstore');
 router.use(function(request, response, next) {
     'use strict';
     console.log('Sample middleware with useful output');
@@ -22,9 +22,9 @@ couch session
  ************/
 var sessionStore = sessionstore.createSessionStore({
     type: 'couchdb',
-    host: 'http://192.168.2.27', // optional
+    host: 'http://168.156.43.69', // optional
     port: 5984, // optional
-    dbName: 'sessionstore-calvert', // optional
+    dbName: 'couch-session-nasu', // optional
     collectionName: 'sessions', // optional
     timeout: 10000 // optional
 }, function(data) {
@@ -34,29 +34,6 @@ var sessionStore = sessionstore.createSessionStore({
 var connect = require('connect');
 var ConnectCouchDB = require('connect-couchdb')(session);
 
-var couchServers = ['168.156.47.51'];
-var CouchStore = new ConnectCouchDB({
-    // Name of the database you would like to use for sessions.
-    name: 'couch-session-nasu',
-
-    // Optional. Database connection details. See yacw documentation
-    // for more informations
-    //username: 'username',
-    //password: 'password',
-    host: couchServers,
-    // Optional. How often expired sessions should be cleaned up.
-    // Defaults to 600000 (10 minutes).
-    reapInterval: 600000,
-
-    // Optional. How often to run DB compaction against the session
-    // database. Defaults to 300000 (5 minutes).
-    // To disable compaction, set compactInterval to -1
-    compactInterval: 300000,
-
-    // Optional. How many time between two identical session store
-    // Defaults to 60000 (1 minute)
-    setThrottle: 60000
-});
 
 router.use(session({
     genid: function(req) {
@@ -86,16 +63,5 @@ router.use(function(request, response, next) {
 
     next();
 });
-
-router.use(session({
-    genid: function(req) {
-        'use strict';
-        return uuid.v4(); // use UUIDs for session IDs
-    },
-    secret: process.env.SESSION_SECRET || 'keyboard cat',
-    resave: true,
-    saveUninitialized: true,
-    store: sessionStore
-}));
 
 module.exports = router;

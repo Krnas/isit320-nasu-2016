@@ -42,7 +42,6 @@ function insert(router, nano, dbName) {
         });
     }
 
-    // http://localhost:30025/insertFile?fileName=foo.json
     router.get('/insertFile', function(request, response) {
         console.log('Write called: ' + JSON.stringify(request.query));
         var query = request.query;

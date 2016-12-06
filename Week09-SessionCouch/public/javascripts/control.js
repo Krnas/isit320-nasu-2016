@@ -18,7 +18,7 @@ $(document).ready(function() {
         viewPage('/views/page02');
     });
     $('#designDoc').click(function() {
-        showPage('/CouchInsert/insert');
+        showPage('/designDoc');
     });
     $('#sessionView').click(function() {
         showPage('/viewSessions?designDoc=elf-session&view=elf-sessions');

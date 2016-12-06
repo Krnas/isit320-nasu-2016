@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+//var express = require('express');
+
+var router = require('./Couch');
 var parseurl = require('parseurl');
 
 var routeParamMiddleware = function(request, response, next) {
