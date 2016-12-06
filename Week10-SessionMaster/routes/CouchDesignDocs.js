@@ -40,7 +40,7 @@ function designDocs(router, nano, dbName) {
         var designName = '_design/elf-session';
         var designDocument = {
             'views': {
-                'elfSession': {
+                'elf-sessions': {
                     'map': elfSessions
                 },
                 'elfSessionStore': {

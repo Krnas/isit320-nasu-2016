@@ -3,9 +3,8 @@ var router = express.Router();
 var parseurl = require('parseurl');
 var session = require('express-session');
 var uuid = require('uuid');
-var FileStore = require('session-file-store')(session);
-var sessionStore = require('sessionstore');
-
+//var FileStore = require('session-file-store')(session);
+var sessionstore = require('sessionstore');
 router.use(function(request, response, next) {
     'use strict';
     console.log('Sample middleware with useful output');
@@ -18,17 +17,28 @@ router.use(function(request, response, next) {
 });
 
 /************
-couch session
+ couch session
  ************/
+var sessionStore = sessionstore.createSessionStore({
+    type: 'couchdb',
+    host: 'http://168.156.43.69', // optional
+    port: 5984, // optional
+    dbName: 'couch-session-nasu', // optional
+    collectionName: 'sessions', // optional
+    timeout: 10000 // optional
+}, function(data) {
+    console.log('sessionStore callback', data);
+});
+
+var connect = require('connect');
+var ConnectCouchDB = require('connect-couchdb')(session);
 
 
 router.use(session({
     genid: function(req) {
         'use strict';
-        console.log('id generated');
         return uuid.v4(); // use UUIDs for session IDs
     },
-    key: 'app.sess',
     secret: process.env.SESSION_SECRET || 'keyboard cat',
     resave: true,
     saveUninitialized: true,
@@ -53,13 +63,5 @@ router.use(function(request, response, next) {
     next();
 });
 
-    sessionStore = sessionstore.createSessionStore({
-    type: 'couchdb',
-    host: 'http://192.168.2.19', // optional
-    port: 5984, // optional
-    dbName: 'sessionstore-calvert', // optional
-    collectionName: 'sessions', // optional
-    timeout: 10000 // optional
-});
-
 module.exports = router;
+

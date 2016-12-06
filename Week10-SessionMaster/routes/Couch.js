@@ -6,7 +6,7 @@ var servers = ['http://168.156.43.69:5984'];
 var serverIndex = 0;
 var nano = require('nano')(servers[serverIndex]);
 
-var dbName = 'game_data_nasu';
+var dbName = 'couch-session-nasu';
 var docName = 'phones';
 
 var insert = require('./CouchInsert')(router, nano, dbName);
