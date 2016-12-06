@@ -10,7 +10,7 @@ requirejs.config({
         'floor': 'javascripts/floors',
         'PointerLockControls': 'javascripts/pointer-lock-controls',
         'PointerLockSetup': 'javascripts/pointer-lock-setup',
-        'DataReader': '/javascripts/data-reader'
+        'DataReaders': 'javascripts/data-reader'
 
     },
     shim: {

@@ -153,8 +153,7 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataR
             for (var i = 0; i < grid.length; i++) {
                 for (var j = 0; j < grid[i].length; j++) {
                     if (grid[j][i] == 1) {
-                        addCube(scene, camera, wireFrame,
-                            floorTexture, j * size, -( i * size ));
+                        addCube(scene, camera, wireFrame, floorTexture, j * size, -( i * size ));
                     }
                 }
             }
