@@ -9,7 +9,8 @@ requirejs.config({
         'Npcs': 'javascripts/npcs',
         'floor': 'javascripts/floors',
         'PointerLockControls': 'javascripts/pointer-lock-controls',
-        'PointerLockSetup': 'javascripts/pointer-lock-setup'
+        'PointerLockSetup': 'javascripts/pointer-lock-setup',
+        'DataReader': '/javascripts/data-reader'
 
     },
     shim: {

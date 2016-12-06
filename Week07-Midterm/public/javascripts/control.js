@@ -1,4 +1,4 @@
-define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions'], function(Floor, PointerLockControls, PointerLockSetup, Collisions) {
+define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataReaders'], function(Floor, PointerLockControls, PointerLockSetup, Collisions, DataReaders) {
     'use strict';
 
     var camera = null;
