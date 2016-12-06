@@ -11,7 +11,7 @@ var passport = require('passport');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var google = require('./routes/google-auth');
-var facebook = require('./routes/facebook');
+var facebook = require('./routes/login-facebook');
 
 var app = express();
 

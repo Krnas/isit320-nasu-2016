@@ -42,7 +42,7 @@ router.use(session({
     secret: process.env.SESSION_SECRET || 'keyboard cat',
     resave: true,
     saveUninitialized: true,
-    store: sessionStore
+    store: store
 }));
 router.use(function(request, response, next) {
     'use strict';
