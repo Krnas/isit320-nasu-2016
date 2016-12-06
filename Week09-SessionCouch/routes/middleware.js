@@ -1,3 +1,4 @@
+var sessionStore = require('sessionstore');
 var express = require('express');
 var router = express.Router();
 var parseurl = require('parseurl');
@@ -19,6 +20,17 @@ router.use(function(request, response, next) {
 /************
 couch session
  ************/
+var sessionStore = sessionstore.createSessionStore({
+    type: 'couchdb',
+    host: 'http://192.168.2.27', // optional
+    port: 5984, // optional
+    dbName: 'sessionstore-calvert', // optional
+    collectionName: 'sessions', // optional
+    timeout: 10000 // optional
+}, function(data) {
+    console.log('sessionStore callback', data);
+});
+
 var connect = require('connect');
 var ConnectCouchDB = require('connect-couchdb')(session);
 
@@ -54,7 +66,7 @@ router.use(session({
     secret: process.env.SESSION_SECRET || 'keyboard cat',
     resave: true,
     saveUninitialized: true,
-    store: new CouchStore()
+    store: sessionStore
 }));
 router.use(function(request, response, next) {
     'use strict';
@@ -73,15 +85,6 @@ router.use(function(request, response, next) {
     views[pathname] = (views[pathname] || 0) + 1;
 
     next();
-});
-
-var sessionStore = sessionstore.createSessionStore({
-    type: 'couchdb',
-    host: 'http://192.168.2.19', // optional
-    port: 5984, // optional
-    dbName: 'sessionstore-calvert', // optional
-    collectionName: 'sessions', // optional
-    timeout: 10000 // optional
 });
 
 router.use(session({
