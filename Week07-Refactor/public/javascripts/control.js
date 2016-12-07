@@ -1,8 +1,9 @@
 /**
  * @name Control
  */
-define(['Route', 'nameController', 'queryController'], function(Route, nameController, queryController) {
-    function control($routeProvider) {
+define(['Route', 'nameController', 'queryController'], function (Route, nameController, queryController) {
+
+    var findRoutes = (function ($routeProvider) {
         'use strict';
         $routeProvider.when('/databaseName', {
             templateUrl: 'templates/DatabaseNames.html',
@@ -62,8 +63,8 @@ define(['Route', 'nameController', 'queryController'], function(Route, nameContr
         }).otherwise({
             redirectTo: '/'
         });
-    };
+    });
 
-return findRoutes;
+    return findRoutes;
 
 });

@@ -24,7 +24,7 @@ function designDocs(router, nano, dbName) {
         emit(doc._id, doc.name);
     };
 
-    var docNpcsCapital = function(doc) {
+    var docNpcs = function(doc) {
         if (doc._id=== 'npcObjects') {
             var data = [];
             doc.docs.forEach(function(npcs) {
@@ -89,8 +89,8 @@ function designDocs(router, nano, dbName) {
                 'docIdDoc': {
                     'map': docIdDoc
                 },
-                'docNpcsCapital': {
-                    'map': docNpcsCapital
+                'docNpcs': {
+                    'map': docNpcs
                 },
                 'docNpcsDoc': {
                     'map': docNpcsDoc
