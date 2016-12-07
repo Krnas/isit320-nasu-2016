@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
-                    '**/node_modules/**', '**/components/**', '**/three.js'
+                    '**/node_modules/**', '**/components/**', '**/three.js', '**/pointer-lock-controls.js'
                 ],
                 reporter: require('jshint-stylish'),
                 strict: true,
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
             fixture: {
                 command: 'sed "/extend/d" views/index.jade > views/fixture.jade'
             }
-        }, 
+        },
 
         karma: {
             karma: {

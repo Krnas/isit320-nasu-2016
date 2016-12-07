@@ -1,7 +1,11 @@
 /**
  * @name Control
  */
-
+define( function () {
+    function FindRoutes($routeProvider) {
+    }
+    return FindRoutes;
+});
 var myModule = angular.module('myModule', ['ngRoute']);
 $('#forward').click(forward);
 $('#back').click(back);
@@ -19,7 +23,7 @@ function back() {
     $('#operatorA').val(doc.npc_id);
     $('#operatorB').val(doc.npc_name);
     $('#operatorC').val(doc.value);
-    $.getJSON.('/read?docName=npcObjects', function (result) {
+    $getJSON.('/read?docName=npcObjects', function (result) {
         $('#debug').html(JSON.stringify(result, null, 4));
     });
 }

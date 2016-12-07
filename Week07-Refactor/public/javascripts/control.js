@@ -1,7 +1,7 @@
 /**
  * @name Control
  */
-define(['nameController', 'querycontroller'], function(nameController, queryController) {
+define(['nameController', 'queryController'], function(nameController, queryController) {
     function control($routeProvider) {
         'use strict';
         $routeProvider.when('/databaseName', {

@@ -1,9 +1,3 @@
-/**
- * @name CouchDesignDoc
- */
-
-/* globals emit: true */
-
 function designDocs(router, nano, dbName) {
     'use strict';
 
@@ -30,64 +24,49 @@ function designDocs(router, nano, dbName) {
         emit(doc._id, doc.name);
     };
 
-    var docStateCapital = function(doc) {
-        emit(doc.abbreviation, {
-            'name': doc.name,
-            'capital': doc.capital
-        });
-    };
-
-    var docStatesDoc = function(doc) {
-        if (doc._id === 'statesDoc') {
+    var docNpcsCapital = function(doc) {
+        if (doc._id=== 'npcObjects') {
             var data = [];
-            doc.docs.forEach(function(state) {
+            doc.docs.forEach(function(npcs) {
                 data.push({
-                    'name': state.name,
-                    'capital': state.capital
+                    'npc_id': doc.npc_id,
+                    'npc_name': doc.npc_name,
+                    'value': doc.value
                 });
             });
             emit(doc.docs[0].abbreviation, data);
         }
+
     };
 
-    /*
-    var viewStatesDoc = function(doc) {
-        if (doc._id === "statesDoc") {
+    var docNpcsDoc = function(doc) {
+        if (doc._id === 'npcObjects') {
             var data = [];
-            doc.docs.forEach(function(state) {
-                emit({
-                    "name" : state.name,
-                    "capital" : state.capital
-                }, 1);
+            doc.docs.forEach(function(npcs) {
+                data.push({
+                    'npc_id': doc.npc_id,
+                    'npc_name': doc.npc_name,
+                    'question': doc.question,
+                    'answer': doc.answer
+                });
             });
             emit(doc.docs[0].abbreviation, data);
         }
-    }
-
-    var docStatesHtml = function(doc) {
-        start({
-            'headers' : {
-                'Content-Type' : 'text/html'
+        nanoDb.insert(npcs, docName, function(err, body) {
+            if (!err) {
+                console.log(body);
+            } else {
+                console.log(err);
             }
         });
-        send('<html><body><table>');
-        send('<tr><th>ID</th><th>Key</th><th>Value</th></tr>')
-        while (row = viewStatesDoc()) {
-            send(''.concat('<tr>', '<td>' + toJSON(row.name) + '</td>', '<td>'
-                    + toJSON(row.capital) + '</td>', '<td>' + toJSON(row.value)
-                    + '</td>', '</tr>'));
-        }
-        send('</table></body></html>');
-
-    }*/
+    };
 
     function createDesignDocument(designDocument, designName, response) {
         var nanoDb = nano.db.use(dbName);
         nanoDb.insert(designDocument, designName, function(error, body) {
             if (!error) {
-                var result = { "ok": true, data: body };
-                console.log(result);
-                response.status(200).send(result);
+                console.log(body);
+                response.send(body);
             } else {
                 console.log('error: ' + error);
                 response.send({
@@ -101,7 +80,7 @@ function designDocs(router, nano, dbName) {
 
         console.log('Design Doc Called');
 
-        var designName = '_design/states';
+        var designName = '_design/npcs';
         var designDocument = {
             'views': {
                 'docBulk': {
@@ -110,19 +89,13 @@ function designDocs(router, nano, dbName) {
                 'docIdDoc': {
                     'map': docIdDoc
                 },
-                'docStateCapital': {
-                    'map': docStateCapital
+                'docNpcsCapital': {
+                    'map': docNpcsCapital
                 },
-                'docStatesDoc': {
-                    'map': docStatesDoc
+                'docNpcsDoc': {
+                    'map': docNpcsDoc
                 }
-                /*,
-                                "viewStatesDoc" : {
-                                    "map" : viewStatesDoc
-                                },
-                                "docStatesHtml" : {
-                                    "map" : docStatesHtml
-                                }*/
+
             }
         };
 
