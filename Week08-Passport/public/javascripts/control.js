@@ -15,7 +15,14 @@ define(function() {
             $('#debug').html(err);
         });
     };
-
     return Control;
+
+    $('#status').click(status);
+    function status() {
+        $.getJSON('/status', function(data) {
+            console.log(data);
+            $('#report').html(JSON.stringify(data, null, 4));
+        });
+    }
 
 });
