@@ -18,7 +18,7 @@ $(document).ready(function() {
         viewPage('/views/page02');
     });
     $('#designDoc').click(function() {
-        showPage('/CouchInsert/insert');
+        showPage('/designDoc');
     });
     $('#sessionView').click(function() {
         showPage('/viewSessions?designDoc=elf-session&view=elf-sessions');
@@ -30,12 +30,12 @@ $(document).ready(function() {
             var info = JSON.stringify(data, null, 4);
             console.log(info);
             $('#display').html(JSON.stringify(data, null, 4))
-                .fail(function(jq, status, error) {
-                    $('#displayArea').html('error: ' + jq.responseText);
-                    console.log('error: ', status);
-                    console.log('error: ', error);
-                });
 
+
+        }).fail(function(jq, status, error) {
+            $('#displayArea').html('error: ' + jq.responseText);
+            console.log('error: ', status);
+            console.log('error: ', error);
         });
     }
 
@@ -44,12 +44,12 @@ $(document).ready(function() {
             var info = JSON.stringify(data, null, 4);
             console.log(info);
             $('#display').html(JSON.stringify(data, null, 4))
-                .fail(function(jq, status, error) {
-                    $('#displayArea').html('error: ' + jq.responseText);
-                    console.log('error: ', status);
-                    console.log('error: ', error);
-                });
+        }).fail(function(jq, status, error) {
+            $('#displayArea').html('error: ' + jq.responseText);
+            console.log('error: ', status);
+            console.log('error: ', error);
         });
+
     }
 
 });
