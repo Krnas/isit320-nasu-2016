@@ -19,8 +19,8 @@ router.get('/profile', require('connect-ensure-login').ensureLoggedIn(),
     });
 
 passport.use(new FacebookStrategy({
-        clientID: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
+        clientID: 126790991131815,
+        clientSecret: process.env.c34a47e34f6b7395cb68864f4d5f2e46,
         callbackURL: 'http://localhost:30025/facebook/login/return',
         profileFields: ['id', 'displayName', 'photos', 'email']
     },

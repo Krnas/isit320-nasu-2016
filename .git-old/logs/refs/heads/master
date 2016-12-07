@@ -1,0 +1,55 @@
+0000000000000000000000000000000000000000 1e60aa62149efb0e50a8a40ccdd925924de44ed0 bcuser <bcuser@bcuser-VirtualBox.(none)> 1474500207 -0700	clone: from https://github.com/Krnas/isit320-nasu-2016.git
+1e60aa62149efb0e50a8a40ccdd925924de44ed0 76a06806c649a3474fc97e0c870a1b2a9a99668f Kristi Nasu <knasu12@gmail.com> 1474500714 -0700	commit: Update readme and add a .gitignore
+76a06806c649a3474fc97e0c870a1b2a9a99668f a0b01b02baf3cb67fa5dd7f02b0f526f31bd174d Kristi Nasu <knasu12@gmail.com> 1474500958 -0700	commit: gitignore
+a0b01b02baf3cb67fa5dd7f02b0f526f31bd174d aa90811b677e43f50b2749e0ab834efd5470a1ef Kristi Nasu <knasu12@gmail.com> 1474674342 -0700	commit: express basics
+aa90811b677e43f50b2749e0ab834efd5470a1ef e16253c5a1a4c7285acf618d730c3f4cc30d8b53 Kristi Nasu <knasu12@gmail.com> 1475108384 -0700	commit: week02
+e16253c5a1a4c7285acf618d730c3f4cc30d8b53 df9a482ffa85436ad6cadd9c6c8316e48289c335 Kristi Nasu <knasu12@gmail.com> 1475446606 -0700	commit: week02 getNumbers
+df9a482ffa85436ad6cadd9c6c8316e48289c335 ba99d1f5b38e9d0a479ab3b5f4e636a464c4aae0 Kristi Nasu <knasu12@gmail.com> 1475540064 -0700	commit: week03 couchdemo
+ba99d1f5b38e9d0a479ab3b5f4e636a464c4aae0 c582d8d5f468f418a9a252539fefb39c9a883e21 Kristi Nasu <knasu12@gmail.com> 1475711017 -0700	commit: week03-couchdb
+c582d8d5f468f418a9a252539fefb39c9a883e21 9144453676f9e3878cbff8b44f71fb4a7b532ee4 Kristi Nasu <knasu12@gmail.com> 1475970515 -0700	commit: week02-gruntcheck
+9144453676f9e3878cbff8b44f71fb4a7b532ee4 c3be7424beba2e6cf3efc4526513fe4948c7c3b1 Kristi Nasu <knasu12@gmail.com> 1475974336 -0700	commit: week03-couchdb
+c3be7424beba2e6cf3efc4526513fe4948c7c3b1 b5cf16d7ce3a06522abe9357debf2f3e31fbb819 Kristi Nasu <knasu12@gmail.com> 1475976985 -0700	commit: week02-expressJquery
+b5cf16d7ce3a06522abe9357debf2f3e31fbb819 625b11ae124646f37cd8ba8183aa68ee9eca6458 Kristi Nasu <knasu12@gmail.com> 1475978341 -0700	commit: week02-expressJquery
+625b11ae124646f37cd8ba8183aa68ee9eca6458 82c986acf8550eef254732fada0014a9eb19b878 Kristi Nasu <knasu12@gmail.com> 1475980369 -0700	commit: week03-expressRoutes
+82c986acf8550eef254732fada0014a9eb19b878 d7c4e143b929db2b7386c19fe23f6fef91edab2a Kristi Nasu <knasu12@gmail.com> 1476310024 -0700	commit: week03
+d7c4e143b929db2b7386c19fe23f6fef91edab2a 4ec367602453fd3c6b5f67d8771f52aac0541356 Kristi Nasu <knasu12@gmail.com> 1476316290 -0700	commit: threefloor
+4ec367602453fd3c6b5f67d8771f52aac0541356 fc3b786449bde23c6d56d037af7f21e942a8c888 Kristi Nasu <knasu12@gmail.com> 1476414999 -0700	commit: week03-PointerLock
+fc3b786449bde23c6d56d037af7f21e942a8c888 6fa31d296b9eb70b3ae28d60f0ba5733ca2c91fe Kristi Nasu <knasu12@gmail.com> 1476575686 -0700	commit: week03-expressJquery
+6fa31d296b9eb70b3ae28d60f0ba5733ca2c91fe c807170457602a848a2ca98d1157635ab7765724 Kristi Nasu <knasu12@gmail.com> 1476577937 -0700	commit: week03
+c807170457602a848a2ca98d1157635ab7765724 31df14afe4bad476598c62ff7693de751dab182e Kristi Nasu <knasu12@gmail.com> 1476578511 -0700	commit: week04-threeJSFloor
+31df14afe4bad476598c62ff7693de751dab182e 08cc37e8e9671a318b9933e5bc8cd184304de38c Kristi Nasu <knasu12@gmail.com> 1476673941 -0700	commit: week04-threejsBasics
+08cc37e8e9671a318b9933e5bc8cd184304de38c 0229f05ba428fd64cb3705e7c6016349f85b461c Kristi Nasu <knasu12@gmail.com> 1476677988 -0700	commit: week04-pointerlocker
+0229f05ba428fd64cb3705e7c6016349f85b461c 32b39439d8f5697a87f8274442644f8347f0f2a0 Kristi Nasu <knasu12@gmail.com> 1476750328 -0700	commit: week05-mazebuilder
+32b39439d8f5697a87f8274442644f8347f0f2a0 734d4b3f3ae3e088ebd8aa8d858e2139f662a15c Kristi Nasu <knasu12@gmail.com> 1476853424 -0700	commit: week04-clickroute
+734d4b3f3ae3e088ebd8aa8d858e2139f662a15c 78114d76db4d1fd8ce014fc53306c93114492433 Kristi Nasu <knasu12@gmail.com> 1476921712 -0700	commit: week05-datamaster
+78114d76db4d1fd8ce014fc53306c93114492433 e13fda5885b11f0b3af31e3063b00ef2806c6665 Kristi Nasu <knasu12@gmail.com> 1477192319 -0700	commit: week04-clickroute
+e13fda5885b11f0b3af31e3063b00ef2806c6665 7194799c020d646b77991d1b5f599e9319eb5d51 Kristi Nasu <knasu12@gmail.com> 1477283104 -0700	commit: week03-couchdbview
+7194799c020d646b77991d1b5f599e9319eb5d51 241432ff542636001c9e71d4d1af32b2b4b34f84 Kristi Nasu <knasu12@gmail.com> 1477284064 -0700	commit: week03-expressJquery
+241432ff542636001c9e71d4d1af32b2b4b34f84 93133c5d5459728bc7184b2ae83fc8dedfdacdc9 Kristi Nasu <knasu12@gmail.com> 1477287968 -0700	commit: week03-expressRoutes
+93133c5d5459728bc7184b2ae83fc8dedfdacdc9 b4f2ddbb325e0ad39e4ff3991ca10f61d5414d58 Kristi Nasu <knasu12@gmail.com> 1477288843 -0700	commit: week04-pointerlocker
+b4f2ddbb325e0ad39e4ff3991ca10f61d5414d58 303c0a6357e1790dcad47d61c6208d164a23fbfd Kristi Nasu <knasu12@gmail.com> 1477289106 -0700	commit: week04-pointerlocker
+303c0a6357e1790dcad47d61c6208d164a23fbfd 6c925d0eba3d64e61a84cf00c4322c69eb1551c7 Kristi Nasu <knasu12@gmail.com> 1477354694 -0700	commit: week06-mazeDataMaster
+6c925d0eba3d64e61a84cf00c4322c69eb1551c7 6eb08a7c32871456dfe5778d8dfbb67d1cfb7097 Kristi Nasu <knasu12@gmail.com> 1477462797 -0700	commit: week05-mazebuilder
+6eb08a7c32871456dfe5778d8dfbb67d1cfb7097 ca998204fbb925f83185b12e8e91af412d97399e Kristi Nasu <knasu12@gmail.com> 1477551690 -0700	commit: week05-datamaster
+ca998204fbb925f83185b12e8e91af412d97399e 4276ea9e063504b25f62b412978190297af8dc1f Kristi Nasu <knasu12@gmail.com> 1477637630 -0700	commit: week03-expressRoutes
+4276ea9e063504b25f62b412978190297af8dc1f 80bb1e39737fad5be4047548c60dbd10be90d296 Kristi Nasu <knasu12@gmail.com> 1477638154 -0700	commit: week03-couchdbViews
+80bb1e39737fad5be4047548c60dbd10be90d296 1fb81bd28e76e4886d21d0a581bf8b9e6a1be7b4 Kristi Nasu <knasu12@gmail.com> 1477638619 -0700	commit: week04-pointerlocker
+1fb81bd28e76e4886d21d0a581bf8b9e6a1be7b4 66577aaefaa57596eb483e6cb6b70f081beb4526 Kristi Nasu <knasu12@gmail.com> 1477705381 -0700	commit: week04-clickRoute
+66577aaefaa57596eb483e6cb6b70f081beb4526 3f6491f13a87e31947e1f22aa82fc5fdf02c087a Kristi Nasu <knasu12@gmail.com> 1477706705 -0700	commit: week04-clickRoute
+3f6491f13a87e31947e1f22aa82fc5fdf02c087a 7582f60309b1b549a167504892811ba998440b04 Kristi Nasu <knasu12@gmail.com> 1477786184 -0700	commit: week04-threejsBasics
+7582f60309b1b549a167504892811ba998440b04 1a6ea566a4312f58725d3f78fcd6571cdaa31639 Kristi Nasu <knasu12@gmail.com> 1477787317 -0700	commit: week04-pointerlocker
+1a6ea566a4312f58725d3f78fcd6571cdaa31639 3a9f98fb3c2e11e6f5206f3663cb64370f73cb7d Kristi Nasu <knasu12@gmail.com> 1477788812 -0700	commit: week05-dataMaster
+3a9f98fb3c2e11e6f5206f3663cb64370f73cb7d 5395e053d9ba08389160c413fbb0acfd99547780 Kristi Nasu <knasu12@gmail.com> 1477897796 -0700	commit: week03-couchdbViews
+5395e053d9ba08389160c413fbb0acfd99547780 b4b8b9cee4c2a597415774b60fb55538979653fd Kristi Nasu <knasu12@gmail.com> 1477898810 -0700	commit: week04-threeFloor
+b4b8b9cee4c2a597415774b60fb55538979653fd d163672e5c254d4676d3ec2918d1fa2048778245 Kristi Nasu <knasu12@gmail.com> 1477899223 -0700	commit: week05-threeJsMaze
+d163672e5c254d4676d3ec2918d1fa2048778245 605841bfdcddc69c5aea1817e7c1f3f11d82fc15 Kristi Nasu <knasu12@gmail.com> 1477952948 -0700	commit: MyTest branching example
+605841bfdcddc69c5aea1817e7c1f3f11d82fc15 206434012e830e4eb29e795cccebbe73689a0894 Kristi Nasu <knasu12@gmail.com> 1478125732 -0700	commit: week05-datamaster
+206434012e830e4eb29e795cccebbe73689a0894 9c17686137c1bfe314ffd6c351dacc76f798ef06 Kristi Nasu <knasu12@gmail.com> 1478132534 -0700	commit: week07-refactor
+9c17686137c1bfe314ffd6c351dacc76f798ef06 d6d1f0c19032b8beacd85154778ef114b73241d5 Kristi Nasu <knasu12@gmail.com> 1478163103 -0700	commit: grunt smoke test
+d6d1f0c19032b8beacd85154778ef114b73241d5 45dce0ce74d406c70f4979eb7a558d3ee42440b2 Kristi Nasu <knasu12@gmail.com> 1478384021 -0700	commit: week07-branchbasics
+45dce0ce74d406c70f4979eb7a558d3ee42440b2 f489e1d2c2df215cf9665016d05cb73534d650f5 Kristi Nasu <knasu12@gmail.com> 1478384140 -0700	commit: week07-branchbasics
+f489e1d2c2df215cf9665016d05cb73534d650f5 850239ba3dc563e13e522efb38e2e9733a7672ba Kristi Nasu <knasu12@gmail.com> 1478384714 -0700	merge test: Merge made by the 'recursive' strategy.
+850239ba3dc563e13e522efb38e2e9733a7672ba 89b9a64547d964ddd291d14d14a126f1913d99c4 Kristi Nasu <knasu12@gmail.com> 1478385516 -0700	commit: week07-branchbasics
+89b9a64547d964ddd291d14d14a126f1913d99c4 d234a35449449e70d13e993ee98dc7e95316ba65 Kristi Nasu <knasu12@gmail.com> 1478590458 -0800	commit: week07-dataMaster
+d234a35449449e70d13e993ee98dc7e95316ba65 b8d6cc8376bffc4abc293de7780542e31df187ea Kristi Nasu <knasu12@gmail.com> 1478939371 -0800	commit: week07-branchBasics
+b8d6cc8376bffc4abc293de7780542e31df187ea 7e2e0c6e4402471e68a15446602ed3a64c09c42e Kristi Nasu <knasu12@gmail.com> 1479684840 -0800	commit: week06-threeDataReader
