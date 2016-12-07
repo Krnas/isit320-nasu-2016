@@ -1,6 +1,9 @@
 define(['runQuery'], function(runQuery){
     function queryController() {
         'use strict';
+        var $scope = $('#debug');
+        var docs = $('#docs');
+        docs.empty();
         if (result.ok) {
             $scope.result = "It worked";
             $scope.stateList = result.data;
@@ -29,14 +32,14 @@ define(['runQuery'], function(runQuery){
         return runQuery('/createDb', $q);
     };
 
-    queryController.statesBulk = function ($q) {
+    queryController.insertNpcsBulk = function ($q) {
         'use strict';
-        return runQuery('/insertBulk?fileName=States.json', $q);
+        return runQuery('/insertBulk?fileName=Npcs.json', $q);
     };
 
-    queryController.statesOneDoc = function ($q) {
+    queryController.insertNpcsOneDoc = function ($q) {
         'use strict';
-        return runQuery('/insertFile?fileName=States.json&id=oneDoc', $q);
+        return runQuery('/insertFile?fileName=Npcs.json&id=oneDoc', $q);
     };
 
     queryController.design = function ($q) {
@@ -44,42 +47,20 @@ define(['runQuery'], function(runQuery){
         return runQuery('/designDoc', $q);
     };
 
-    queryController.viewBulk = function ($q) {
-        'use strict';
-        return runQuery('/viewBulk?designDoc=states&view=docBulk', $q);
-    };
-
     queryController.readOne = function ($q) {
         'use strict';
-        return runQuery('/read?docName=statesDoc', $q);
+        return runQuery('/read?docName=npcsDoc', $q);
+    };
+
+    queryController.viewBulk = function ($q) {
+        'use strict';
+        return runQuery('/viewNpcsBulk?designDoc=game&view=npcsBulk', $q);
     };
 
     queryController.viewOneDoc = function ($q) {
         'use strict';
-        return runQuery('/viewOneDoc?designDoc=states&view=docStatesDoc', $q);
+        return runQuery('/viewNpcsOneDoc?designDoc=game&view=npcsOneDoc', $q);
     };
 
-    queryController.viewBulkAngular = function ($q) {
-        'use strict';
-        return runQuery('/viewStateCapitalAngular?designDoc=states&view=docStateCapital', $q);
-    };
-
-    var nameController = myModule.controller('NameController', function ($scope, databaseName, allDbs) {
-        'use strict';
-        $scope.databaseName = databaseName;
-        $scope.allDbs = allDbs;
-    });
-
-    nameController.databaseName = function ($q) {
-        'use strict';
-        return runQuery('/databaseName', $q);
-    };
-
-    nameController.allDbs = function ($q) {
-        'use strict';
-        return runQuery('/listDb', $q);
-    };
     return queryController;
 });
-
-
