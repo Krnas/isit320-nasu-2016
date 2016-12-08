@@ -1,4 +1,4 @@
-define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataReaders'], function(Floor, PointerLockControls, PointerLockSetup, Collisions, DataReaders) {
+define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataReaders', 'utilities'], function(Floor, PointerLockControls, PointerLockSetup, Collisions, DataReaders, utilities) {
     'use strict';
 
     var camera = null;
@@ -6,6 +6,7 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataR
     var controls;
     var cubes = [];
     var npcs = [];
+    var mainCharacter={ x:0, z:0};
     var raycaster = null;
     var renderer = null;
     var THREE = null;

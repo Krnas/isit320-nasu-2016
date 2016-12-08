@@ -1,5 +1,8 @@
-define(['DataReaders'], function(DataReaders) {
+define(['utilities'], function(utilities) {
     'use strict';
+    function DataReaders() {
+        
+    }
     DataReaders.prototype.readDatabase = function (callback) {
         var query = '/read?docName=npcsDoc';
         $.getJSON(query, function (json) {

@@ -6,7 +6,7 @@ define(function() {
         THREE = threeInit;
     }
 
-    Collisions.prototype.collisionDetection = function(controls, cubes) {
+    Collisions.prototype.collisionDetection = function(controls, cubes, raycaster) {
 
         function bounceBack(position, ray) {
             position.x -= ray.bounceDistance.x;
