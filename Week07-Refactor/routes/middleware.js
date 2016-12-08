@@ -4,6 +4,8 @@ var parseurl = require('parseurl');
 var session = require('express-session');
 var uuid = require('uuid');
 var sessionstore = require('sessionstore');
+var setServer = require('./set-server');
+var nano = require('nano')(setServer.serverUrl);
 router.use(function(request, response, next) {
     'use strict';
     console.log('Sample middleware with useful output');
@@ -31,6 +33,7 @@ var sessionStore = sessionstore.createSessionStore({
 
 var connect = require('connect');
 var ConnectCouchDB = require('connect-couchdb')(session);
+var couchBulk = require('./CouchBulk')(router, dbName, setServer.serverUrl);
 
 router.use(session({
     genid: function(req) {

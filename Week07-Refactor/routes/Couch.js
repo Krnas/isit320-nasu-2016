@@ -6,10 +6,11 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-var setServer = require('./set-server');
+
 var servers = ['http://168.156.45.196:5984'];
 var serverIndex = 0;
-var nano = require('nano')(servers[serverIndex]);
+var setServer = require('./set-server');
+//var nano = require('nano')(servers[serverIndex]);
 var nano = require('nano')(setServer.serverUrl);
 var dbName = 'game_data_nasu';
 
@@ -19,7 +20,6 @@ var insert = require('./CouchInsert')(router, nano, dbName);
 var views = require('./CouchViews')(router, nano, dbName);
 var designDocs = require('./CouchDesignDocs')(router, nano, dbName);
 var attach = require('./CouchAttach')(router, nano, dbName);
-var couchBulk = require('./CouchBulk')(router, dbName, servers[serverIndex]);
 var couchBulk = require('./CouchBulk')(router, dbName, setServer.serverUrl);
 router.get('/databaseName', function(request, response) {
     'use strict';

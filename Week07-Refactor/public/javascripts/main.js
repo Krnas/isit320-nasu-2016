@@ -16,6 +16,7 @@ requirejs.config({
         'runQuery': 'javascripts/run-query',
         'utility': 'javascripts/utility',
         'jsonToHtml': '/components/elf-json-to-table/json-to-table'
+
     }
 });
 
