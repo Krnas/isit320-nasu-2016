@@ -24,7 +24,7 @@ function check() {
   if [ ! -d node_modules ]; then
      # npm install
      ln -s ~/tmp/node_modules node_modules
-  fi   
+  fi
 
   grunt check
 
@@ -55,15 +55,55 @@ function basicTypes() {
     fi
 }
 
-check Week01-ExpressBasics/  
-basicTypes
-check Week02-GetNumbers/
-check Week02-JavaScriptObjects/
-check Week02-ObjectBasicsJasmine/
-check Week03-CouchDbDemo/
-check Week03-CouchDbViews/
-check Week03-ExpressJQuery/
-check Week03-ExpressRoutes/
-check Week04-PointerLock/
-check Week04-ThreeFloor/
-check Week04-ThreeJsBasics/
+function fancy() {
+    if [ -d $A1 ]; then
+        echo "Directory $A1 exists"
+    else
+        if [ -d $A2 ]; then
+            echo "Directory $A2 exists"
+        else
+            echo "Neither Directory $A1 or $A2 exists"
+        fi
+    fi
+}
+
+function Weeks01To04() {
+    check Week01-ExpressBasics/
+    basicTypes
+    check Week02-GetNumbers/
+    check Week02-JavaScriptObjects/
+    check Week02-ObjectBasicsJasmine/
+    check Week03-CouchDbDemo/
+    check Week03-CouchDbViews/
+    check Week03-ExpressJQuery/
+    check Week03-ExpressRoutes/
+    check Week04-PointerLock/
+    check Week04-ThreeFloor/
+    check Week04-ThreeJsBasics/
+}
+
+function Weeks05To07 {
+    check Week05-MazeBuilder/
+    check Week06-MazeDataReader/
+    check Week07-Midterm/
+}
+
+function Weeks08To09() {
+    check Week08-Facebook/
+    #check Week08-Google/
+    check Week08-Passport/
+    check Week09-SessionBasics/
+    check Week09-SessionCouch/
+}
+
+function Weeks10ToFinal() {
+    check Week10-JadeMixinBasics
+    check Week10-SessionMaster
+    check DataHunter
+    check DataMaster
+}
+
+Weeks01To04
+Weeks05To07
+Weeks08To09
+Weeks10ToFinal
