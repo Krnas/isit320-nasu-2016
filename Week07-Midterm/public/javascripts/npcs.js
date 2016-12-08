@@ -1,6 +1,7 @@
 Npcs.prototype.npcList = [];
 Npcs.prototype.npcCoordinates = [];
 Npcs.prototype.createNpc = function(scene, wireFrame, x, z, xPos, zPos, doc) {
+    'use strict';
     var geometry = new THREE.SphereGeometry(10, 40, 25);
     var material = new THREE.MeshNormalMaterial({
         wireframe: wireFrame
@@ -15,6 +16,7 @@ Npcs.prototype.createNpc = function(scene, wireFrame, x, z, xPos, zPos, doc) {
     return sphere ;
 };
 Npcs.prototype.readNpcGrid = function(scene, wireFrame, docs) {
+    'use strict';
     var that = this;
     var docNum = 0;
     $.getJSON('npc000.json', function(grid) {

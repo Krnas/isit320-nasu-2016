@@ -1,4 +1,5 @@
 define([ 'runQuery' ], function (runQuery) {
+    'use strict';
     var gameDocs ;
     var index = 0 ;
     function init() {

@@ -1,5 +1,5 @@
 define(function (require) {
-
+'use strict';
     function runQuery(query, $q) {
         'use strict';
         var controller = $q.getController();
