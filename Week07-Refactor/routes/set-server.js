@@ -8,4 +8,3 @@ var serverUrl = servers[serverIndex];
 console.log('Middleware attaching to database on: ', serverUrl);
 
 module.exports.serverUrl = serverUrl;
-module.exports.dbName = 'game_data_nasu';

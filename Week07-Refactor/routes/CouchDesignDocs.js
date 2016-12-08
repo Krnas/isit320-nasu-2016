@@ -1,53 +1,41 @@
+/**
+ * @name CouchDesignDoc
+ */
+
+/* globals emit: true */
+
 function designDocs(router, nano, dbName) {
     'use strict';
 
-    var firstAndLast = function(doc) {
-        if (doc.firstName && doc.lastName) {
-            var name = doc.firstName + ' ' + doc.lastName;
-            emit(doc._id, name);
-        }
-    };
-
-    var lastOnly = function(doc) {
-
-        if (doc.firstName && doc.lastName) {
-            var name = doc.lastName;
-            emit(doc._id, name);
-        }
-    };
-
-    var docIdDoc = function(doc) {
-        emit(doc._id, doc);
-    };
-
-    var npcsBulk = function(doc) {
-        emit(doc._id, doc.name);
-    };
-
-    var npcsOneDoc = function(doc) {
-        if (doc._id === 'npcObjects') {
-            var data = [];
-            doc.docs.forEach(function(npcs) {
-                data.push({
-                    'npc_id': doc.npc_id,
-                    'npc_name': doc.npc_name,
-                    'question': doc.question,
-                    'answer': doc.answer
-                });
-            });
-            emit(doc.docs[0].abbreviation, data);
-        }
-        nanoDb.insert(npcs, docName, function(err, body) {
-            if (!err) {
-                console.log(body);
-            } else {
-                console.log(err);
-            }
-        });
-    };
     var elfSessions = function(doc) {
         if (doc.collectionName === 'sessions') {
             emit(doc._id, doc);
+        }
+    };
+
+    var npcsBulkNoOneDoc = function(doc) {
+        if (doc._id !== 'npcsDoc') {
+            emit(doc._id, doc);
+        }
+    };
+
+    var npcsBulk = function(doc) {
+        if (doc._id !== 'npcsDoc') {
+            emit(doc._id, doc);
+        }
+    };
+
+    var npcsOneDoc = function(doc) {
+        if (doc._id === 'npcsDoc') {
+            var data = [];
+            doc.docs.forEach(function(npc) {
+                data.push({
+                    'npc_name': npc.npc_name,
+                    'description': npc.description,
+                    'value': npc.value
+                });
+            });
+            emit(doc._id, data);
         }
     };
 
@@ -55,13 +43,15 @@ function designDocs(router, nano, dbName) {
         var nanoDb = nano.db.use(dbName);
         nanoDb.insert(designDocument, designName, function(error, body) {
             if (!error) {
-                console.log(body);
-                response.send(body);
+                var result = {
+                    ok: true,
+                    data: body
+                };
+                console.log(result);
+                response.send(result);
             } else {
                 console.log('error: ' + error);
-                response.send({
-                    'Result': 'The document might already exist. ' + error
-                });
+                response.send(error);
             }
         });
     }
