@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "elf-json-to-table": "elf-json-to-html-table#^0.0.5"
   }
 }

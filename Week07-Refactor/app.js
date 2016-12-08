@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var google = require('./routes/google-auth');
+var facebook=require('./routes/login-facebook');
+var passport = require('passport');
 
 var app = express();
 
@@ -24,9 +27,14 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', routes);
 app.use('/users', users);
-
+app.use('/auth', google);
+app.use('/facebook', facebook);
+app.use('/passport', passport);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     'use strict';
