@@ -1,4 +1,5 @@
 define(['runQuery'], function(runQuery) {
+    'use strict';
     var gameDocs;
     var index = 0;
 
@@ -23,7 +24,7 @@ define(['runQuery'], function(runQuery) {
         $('#npcQuestion').val(gameDoc.question);
     };
     var readController = function(query, result) {
-        'use strict';
+
         gameDocs = result.docs;
         var docElement = $('#docs');
         docElement.empty();
@@ -31,7 +32,7 @@ define(['runQuery'], function(runQuery) {
         docElement.html(JSON.stringify(gameDocs, null, 4));
     };
     readController.readOne = function($q) {
-        'use strict';
+
         return runQuery('/read?docName=npcsDoc', $q);
     };
     init();

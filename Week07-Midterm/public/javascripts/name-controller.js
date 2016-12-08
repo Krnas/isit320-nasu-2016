@@ -1,6 +1,7 @@
 define(['runQuery'], function(runQuery) {
+    'use strict';
     var nameController = function(query, data) {
-        'use strict';
+
         var $scope = $('#debug');
         var docs = $('#docs');
         var displayData = JSON.stringify(data, null, 5);
@@ -11,11 +12,11 @@ define(['runQuery'], function(runQuery) {
         }
     };
     nameController.databaseName = function($q) {
-        'use strict';
+
         return runQuery('/databaseName', $q);
     };
     nameController.allDbs = function($q) {
-        'use strict';
+
         return runQuery('/listDb', $q);
     };
     return nameController;
