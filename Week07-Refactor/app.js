@@ -34,6 +34,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/auth', google);
 app.use('/facebook', facebook);
+app.use('/passport', passport);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     'use strict';
