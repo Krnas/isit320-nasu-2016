@@ -20,26 +20,11 @@ function designDocs(router, nano, dbName) {
         emit(doc._id, doc);
     };
 
-    var docBulk = function(doc) {
+    var npcsBulk = function(doc) {
         emit(doc._id, doc.name);
     };
 
-    var docNpcsCapital = function(doc) {
-        if (doc._id=== 'npcObjects') {
-            var data = [];
-            doc.docs.forEach(function(npcs) {
-                data.push({
-                    'npc_id': doc.npc_id,
-                    'npc_name': doc.npc_name,
-                    'value': doc.value
-                });
-            });
-            emit(doc.docs[0].abbreviation, data);
-        }
-
-    };
-
-    var docNpcsDoc = function(doc) {
+    var npcsOneDoc = function(doc) {
         if (doc._id === 'npcObjects') {
             var data = [];
             doc.docs.forEach(function(npcs) {
@@ -60,6 +45,11 @@ function designDocs(router, nano, dbName) {
             }
         });
     };
+    var elfSessions = function(doc) {
+        if (doc.collectionName === 'sessions') {
+            emit(doc._id, doc);
+        }
+    };
 
     function createDesignDocument(designDocument, designName, response) {
         var nanoDb = nano.db.use(dbName);
@@ -77,25 +67,20 @@ function designDocs(router, nano, dbName) {
     }
 
     router.get('/designDoc', function(request, response) {
-
         console.log('Design Doc Called');
 
-        var designName = '_design/npcs';
+        var designName = '_design/game';
         var designDocument = {
             'views': {
-                'docBulk': {
-                    'map': docBulk
+                'npcsBulk': {
+                    'map': npcsBulk
                 },
-                'docIdDoc': {
-                    'map': docIdDoc
+                'npcsOneDoc': {
+                    'map': npcsOneDoc
                 },
-                'docNpcsCapital': {
-                    'map': docNpcsCapital
-                },
-                'docNpcsDoc': {
-                    'map': docNpcsDoc
+                'elf-sessions': {
+                    'map': elfSessions
                 }
-
             }
         };
 

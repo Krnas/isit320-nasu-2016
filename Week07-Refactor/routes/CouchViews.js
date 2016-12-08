@@ -21,8 +21,27 @@ function views(router, nano, dbName) {
                 response.send(500, err);
             }
         });
+        return runQuery('/viewSessions?designDoc=game&view=elf-sessions', $q);
     }
-
+    router.get('/viewSessions', function(request, response) {
+        console.log('/viewSessions called', request.query, dbName);
+        var nanoDb = nano.db.use(dbName);
+        nanoDb.view(request.query.designDoc, request.query.view, function(err, body) {
+            if (!err) {
+                console.log(body);
+                //var data = body.rows[0].value.map(function(a) {
+                //    return a;
+                //});
+                response.send({
+                    'name': 'viewSessions',
+                    docs: body
+                });
+            } else {
+                console.log(err);
+                response.status(err.statusCode).send(err);
+            }
+        });
+    });
     /**
      * @memberOf CouchViews
      * @name View01 http://localhost:5984/couch_views/_design/states/_view/docBulk
