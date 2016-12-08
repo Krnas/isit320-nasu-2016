@@ -7,7 +7,7 @@ define(function(require) {
             controller(query, json);
         }).fail(function(jqxhr, textStatus, error) {
             var response = {
-                error: "Unknown. Is program running?"
+                error: 'Unknown. Is program running?'
             };
             if (jqxhr.responseText) {
                 response = JSON.parse(jqxhr.responseText);
