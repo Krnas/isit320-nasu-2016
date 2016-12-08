@@ -47,4 +47,8 @@ function couchBulk(router, dbName, server) {
 
 }
 
+<<<<<<< HEAD
 module.exports = couchBulk;
+=======
+module.exports = couchBulk;
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e

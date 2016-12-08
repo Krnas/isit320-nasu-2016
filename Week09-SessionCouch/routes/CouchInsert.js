@@ -42,6 +42,10 @@ function insert(router, nano, dbName) {
         });
     }
 
+<<<<<<< HEAD
+=======
+    // http://localhost:30025/insertFile?fileName=foo.json
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e
     router.get('/insertFile', function(request, response) {
         console.log('Write called: ' + JSON.stringify(request.query));
         var query = request.query;
@@ -59,4 +63,8 @@ function insert(router, nano, dbName) {
 
 }
 
+<<<<<<< HEAD
 module.exports = insert;
+=======
+module.exports = insert;
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e

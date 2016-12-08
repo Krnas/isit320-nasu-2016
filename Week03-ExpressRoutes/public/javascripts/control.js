@@ -5,7 +5,10 @@ $(document).ready(function() {
     $('#read').click(read);
     $('#readJson').click(readJson);
     $('#add').click(add);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e
 
     function read() {
         console.log('callRead called');

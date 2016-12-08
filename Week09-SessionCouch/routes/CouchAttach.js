@@ -7,12 +7,20 @@ function couchAttach(router, nano, dbName) {
         var fs = require('fs');
 
         fs.readFile('Images/rabbit.png', function(err, data) {
+<<<<<<< HEAD
             if (!err) {
+=======
+            if(!err) {
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e
                 var nanoDb = nano.db.use(dbName);
                 nanoDb.attachment.insert('rabbit', 'rabbit.png', data, 'image/png', {
                     rev: '12-150985a725ec88be471921a54ce91452'
                 }, function(err, body) {
+<<<<<<< HEAD
                     if (!err) {
+=======
+                    if(!err) {
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e
                         console.log(body);
                     } else {
                         console.log(err);
@@ -96,4 +104,8 @@ function couchAttach(router, nano, dbName) {
 
 }
 
+<<<<<<< HEAD
 module.exports = couchAttach;
+=======
+module.exports = couchAttach;
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e

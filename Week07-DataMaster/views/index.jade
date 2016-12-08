@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  h1= title
+  p 
+    | Welcome to #{title}. Click the options below, and if necessary 
+    | scroll down to see the results.
+
+  ul
+    li 
+      a(href='/#/databaseName') Get current Database Name and all names
+    li
+      a(href='/#/createDb') CreateDb
+    li
+      a(href='/#/deleteDb') DeleteDb
+  ul
+    li
+      a(href='/#/insertStatesBulk') Insert Npcs in bulk
+    li
+      a(href='/#/insertStatesOneDoc') Insert Npcs as one document
+    li
+      a(href="/#/insertDesignDoc") Insert Design Doc
+  ul
+    li
+      a(href="/#/readOne") Read One Doc
+    li
+      a(href="/#/viewOneDoc") View Npcs from one document
+    li
+      a(href="/#/viewBulk") Angular View Bulk Doc
+
+  pre#debug
+
+  div
+    input#operatorA(type='text')
+  div
+    input#operatorB(type='text')
+  div
+    input#operatorC(type='text')
+
+  button#forward Forward
+  button#back Back
+
+  div
+    div ( data-ng-view = '' )
+
+

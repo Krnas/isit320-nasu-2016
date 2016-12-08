@@ -7,7 +7,7 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
-var servers = ['http://168.156.41.94:5984'];
+var servers = ['http://168.156.45.196:5984'];
 var serverIndex = 0;
 var nano = require('nano')(servers[serverIndex]);
 

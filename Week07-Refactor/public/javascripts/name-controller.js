@@ -4,7 +4,8 @@ define(['runQuery'], function (runQuery) {
 
         var $scope = $('#debug');
         var docs = $('#docs');
-        if (query=='/databaseName'){
+        var debug = $('#debug');
+        if (query === '/databaseName') {
             debug.html(data.currentDatabaseName);
         }
         // YOU WRITE THE REST OF THE CODE
@@ -12,14 +13,10 @@ define(['runQuery'], function (runQuery) {
         // EITHER THE databaseName METHOD IS CALLED
         // OR WHEN THE allDbs METHOD IS CALLED
         // VERY SIMILAR TO queryController, but simpler.
-        else if (query=='/allDb') {
-            debug.html(data.currentDatabaseName);
+        else if(query==='/allDb') {
+            debug.html('here');
         }
-        else {
-            $scope.result = result
-        }
-    };
-
+    }
     nameController.databaseName = function ($q) {
         'use strict';
         return runQuery('/databaseName', $q);

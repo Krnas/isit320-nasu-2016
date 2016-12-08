@@ -40,7 +40,7 @@ function views(router, nano, dbName) {
         runTemplateView('Templates/StateCapital.html', request, response);
     });
 
-    router.get('/viewNpcsBulk', function(request, response) {
+    router.get('/viewBulk', function(request, response) {
         var nanoDb = nano.db.use(dbName);
         nanoDb.view(request.query.designDoc, request.query.view, function(err, body) {
             if (!err) {
@@ -69,7 +69,7 @@ function views(router, nano, dbName) {
         });
     });
 
-    router.get('/viewNpcsOneDoc', function(request, response) {
+    router.get('/viewOneDoc', function(request, response) {
         console.log('View one doc called');
         var nanoDb = nano.db.use(dbName);
         nanoDb.view(request.query.designDoc, request.query.view, function(err, body) {

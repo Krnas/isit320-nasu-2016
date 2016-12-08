@@ -1,5 +1,6 @@
 function views(router, nano, dbName) {
     'use strict';
+<<<<<<< HEAD
 
     router.get('/viewSessions', function(request, response) {
         console.log('/viewSessions called', request.query);
@@ -22,12 +23,22 @@ function views(router, nano, dbName) {
         console.log('/viewNpcsBulk called', request.query);
         var nanoDb = nano.db.use(dbName);
         nanoDb.view(request.query.designDoc, request.query.view, function(err, body) {
+=======
+    router.get('/viewNpcsBulk', function (request, response) {
+        console.log('/viewNpcsBulk called', request.query);
+        var nanoDb = nano.db.use(dbName);
+        nanoDb.view(request.query.designDoc, request.query.view, function (err, body) {
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e
             if (!err) {
                 console.log(body);
                 var result = {
                     docs: []
                 };
+<<<<<<< HEAD
                 body.rows.forEach(function(doc) {
+=======
+                body.rows.forEach(function (doc) {
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e
                     result.docs.push(doc.value);
                 });
                 response.send(result);
@@ -37,6 +48,7 @@ function views(router, nano, dbName) {
             }
         });
     });
+<<<<<<< HEAD
     router.get('/viewNpcsOneDoc', function(request, response) {
         console.log('/viewNpcsOneDoc called', request.query);
         var nanoDb = nano.db.use(dbName);
@@ -45,6 +57,15 @@ function views(router, nano, dbName) {
             function(err, body) {
                 if (!err) {
                     var data = body.rows[0].value.map(function(a) {
+=======
+    router.get('/viewNpcsOneDoc', function (request, response) {
+        console.log('/viewNpcsOneDoc called', request.query);
+        var nanoDb = nano.db.use(dbName);
+        nanoDb.view(request.query.designDoc,
+            request.query.view, function (err, body) {
+                if (!err) {
+                    var data = body.rows[0].value.map(function (a) {
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e
                         return a;
                     });
                     response.send({
@@ -58,4 +79,8 @@ function views(router, nano, dbName) {
             });
     });
 }
+<<<<<<< HEAD
 module.exports = views;
+=======
+module.exports = views;
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e

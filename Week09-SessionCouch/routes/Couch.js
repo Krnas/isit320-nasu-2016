@@ -2,11 +2,19 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
+<<<<<<< HEAD
 var servers = ['http://168.156.43.69:5984'];
 var serverIndex = 0;
 var nano = require('nano')(servers[serverIndex]);
 
 var dbName = 'couch-session-nasu';
+=======
+var servers = ['http://168.156.47.111:5984'];
+var serverIndex = 0;
+var nano = require('nano')(servers[serverIndex]);
+
+var dbName = 'week09-session-couch';
+>>>>>>> 15079e2e587a290bbb722e8a35bef7a7acdc666e
 var docName = 'phones';
 
 var insert = require('./CouchInsert')(router, nano, dbName);
