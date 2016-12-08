@@ -11,7 +11,8 @@ define(['PointerLockControls'], function(pointerLock) {
         blocker = document.getElementById('blocker');
         instructions = document.getElementById('instructions');
 
-        var havePointerLock = 'pointerLockElement' in document || 'mozPointerLockElement' in document || 'webkitPointerLockElement' in document;
+        var havePointerLock = 'pointerLockElement' in document || 'mozPointerLockElement' in document ||
+            'webkitPointerLockElement' in document;
 
         if (havePointerLock) {
 
@@ -19,7 +20,8 @@ define(['PointerLockControls'], function(pointerLock) {
 
             var pointerlockchange = function(event) {
 
-                if (document.pointerLockElement === element || document.mozPointerLockElement === element || document.webkitPointerLockElement === element) {
+                if (document.pointerLockElement === element || document.mozPointerLockElement === element ||
+                    document.webkitPointerLockElement === element) {
 
                     controls.enabled = true;
 
@@ -58,13 +60,15 @@ define(['PointerLockControls'], function(pointerLock) {
                 instructions.style.display = 'none';
 
                 // Ask the browser to lock the pointer
-                element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
+                element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock ||
+                    element.webkitRequestPointerLock;
 
                 if (/Firefox/i.test(navigator.userAgent)) {
 
                     var fullscreenchange = function(event) {
 
-                        if (document.fullscreenElement === element || document.mozFullscreenElement === element || document.mozFullScreenElement === element) {
+                        if (document.fullscreenElement === element || document.mozFullscreenElement === element ||
+                            document.mozFullScreenElement === element) {
 
                             document.removeEventListener('fullscreenchange', fullscreenchange);
                             document.removeEventListener('mozfullscreenchange', fullscreenchange);
@@ -77,7 +81,8 @@ define(['PointerLockControls'], function(pointerLock) {
                     document.addEventListener('fullscreenchange', fullscreenchange, false);
                     document.addEventListener('mozfullscreenchange', fullscreenchange, false);
 
-                    element.requestFullscreen = element.requestFullscreen || element.mozRequestFullscreen || element.mozRequestFullScreen || element.webkitRequestFullscreen;
+                    element.requestFullscreen = element.requestFullscreen || element.mozRequestFullscreen ||
+                        element.mozRequestFullScreen || element.webkitRequestFullscreen;
 
                     element.requestFullscreen();
 

@@ -1,11 +1,11 @@
-define(['utilities'], function (utilities) {
+define(['utilities'], function(utilities) {
     'use strict';
 
     return {
-        showDebug: function (value) {
+        showDebug: function(value) {
             console.log(value);
         },
-        getPos: function (number, size) {
+        getPos: function(number, size) {
             return Math.abs(Math.round(number / size));
         }
     };

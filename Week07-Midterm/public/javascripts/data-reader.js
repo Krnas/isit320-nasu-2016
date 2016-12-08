@@ -1,23 +1,24 @@
 define(['utilities'], function(utilities) {
     'use strict';
+
     function DataReaders() {
-        
+
     }
-    DataReaders.prototype.readDatabase = function (callback) {
+    DataReaders.prototype.readDatabase = function(callback) {
         var query = '/read?docName=npcsDoc';
-        $.getJSON(query, function (json) {
+        $.getJSON(query, function(json) {
             callback(json.docs);
             console.log('Success: ' + JSON.stringify(json, null, 4));
-        }).done(function () {
+        }).done(function() {
             utilities.showDebug('Database loaded second success');
-        }).fail(function (jqxhr, textStatus, error) {
+        }).fail(function(jqxhr, textStatus, error) {
             var response = JSON.parse(jqxhr.responseText);
             response.genericError = error;
             response.statusText = textStatus;
             console.log({
                 'databaseLoadFailed': response
             });
-        }).always(function () {
+        }).always(function() {
             utilities.showDebug('Database loaded complete');
         });
     };

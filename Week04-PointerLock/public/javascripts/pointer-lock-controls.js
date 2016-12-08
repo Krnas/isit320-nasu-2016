@@ -30,7 +30,9 @@ define(['floor', 'PointerLockControls'], function(Floor, PointerLockControls) {
 
         var onMouseMove = function(event) {
 
-            if (scope.enabled === false) return;
+            if (scope.enabled === false) {
+                return;
+            }
 
             var movementX = event.movementX || event.mozMovementX || event.webkitMovementX || 0;
             var movementY = event.movementY || event.mozMovementY || event.webkitMovementY || 0;
@@ -67,9 +69,11 @@ define(['floor', 'PointerLockControls'], function(Floor, PointerLockControls) {
                     break;
 
                 case 32: // space
-                    if (canJump === true) velocity.y += 350;
-                    canJump = false;
-                    break;
+                    if (canJump === true) {
+                        velocity.y += 350;
+                        canJump = false;
+                        break;
+                    }
 
             }
 
@@ -127,7 +131,7 @@ define(['floor', 'PointerLockControls'], function(Floor, PointerLockControls) {
             // assumes the camera itself is not rotated
 
             var direction = new THREE.Vector3(0, 0, -1);
-            var rotation = new THREE.Euler(0, 0, 0, "YXZ");
+            var rotation = new THREE.Euler(0, 0, 0, 'YXZ');
 
             return function(v) {
 
@@ -143,7 +147,9 @@ define(['floor', 'PointerLockControls'], function(Floor, PointerLockControls) {
 
         this.update = function() {
 
-            if (scope.enabled === false) return;
+            if (scope.enabled === false) {
+                return;
+            }
 
             var time = performance.now();
             var delta = (time - prevTime) / 1000;
@@ -153,11 +159,19 @@ define(['floor', 'PointerLockControls'], function(Floor, PointerLockControls) {
 
             velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
 
-            if (moveForward) velocity.z -= 400.0 * delta;
-            if (moveBackward) velocity.z += 400.0 * delta;
+            if (moveForward) {
+                velocity.z -= 400.0 * delta;
+            }
+            if (moveBackward) {
+                velocity.z += 400.0 * delta;
+            }
 
-            if (moveLeft) velocity.x -= 400.0 * delta;
-            if (moveRight) velocity.x += 400.0 * delta;
+            if (moveLeft) {
+                velocity.x -= 400.0 * delta;
+            }
+            if (moveRight) {
+                velocity.x += 400.0 * delta;
+            }
 
             // I've changed this code to stop all movement if we
             // are about to hit something. Compare to original

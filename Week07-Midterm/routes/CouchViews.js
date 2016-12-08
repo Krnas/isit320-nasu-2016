@@ -1,15 +1,15 @@
 function views(router, nano, dbName) {
     'use strict';
-    router.get('/viewNpcsBulk', function (request, response) {
+    router.get('/viewNpcsBulk', function(request, response) {
         console.log('/viewNpcsBulk called', request.query);
         var nanoDb = nano.db.use(dbName);
-        nanoDb.view(request.query.designDoc, request.query.view, function (err, body) {
+        nanoDb.view(request.query.designDoc, request.query.view, function(err, body) {
             if (!err) {
                 console.log(body);
                 var result = {
                     docs: []
                 };
-                body.rows.forEach(function (doc) {
+                body.rows.forEach(function(doc) {
                     result.docs.push(doc.value);
                 });
                 response.send(result);
@@ -19,13 +19,14 @@ function views(router, nano, dbName) {
             }
         });
     });
-    router.get('/viewNpcsOneDoc', function (request, response) {
+    router.get('/viewNpcsOneDoc', function(request, response) {
         console.log('/viewNpcsOneDoc called', request.query);
         var nanoDb = nano.db.use(dbName);
         nanoDb.view(request.query.designDoc,
-            request.query.view, function (err, body) {
+            request.query.view,
+            function(err, body) {
                 if (!err) {
-                    var data = body.rows[0].value.map(function (a) {
+                    var data = body.rows[0].value.map(function(a) {
                         return a;
                     });
                     response.send({

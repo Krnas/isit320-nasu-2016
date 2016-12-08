@@ -28,7 +28,7 @@ define(function() {
 
         var position = controls.getObject().position;
         var rayHits = [];
-        for (var index = 0; index<rays.length; index += 1) {
+        for (var index = 0; index < rays.length; index += 1) {
 
             // Set bounce distance for each vector
             var bounceSize = 0.01;
@@ -51,32 +51,33 @@ define(function() {
         return false;
     };
     var foundSpot = {
-        x: - 1,
-        z: - 1
+        x: -1,
+        z: -1
     };
-    Collisions.prototype.npcDetection = function (x, z, npcList) {
+    Collisions.prototype.npcDetection = function(x, z, npcList) {
         function getCoords(name) {
             var result = name.split('_');
             return {
-                x: parseInt(result[1]), z: parseInt(result[2])
+                x: parseInt(result[1]),
+                z: parseInt(result[2])
             };
         }
 
-        for(var i = 0; i < npcList.length; i++) {
+        for (var i = 0; i < npcList.length; i++) {
             var npc = npcList[i];
             var coordinates = getCoords(npc.name);
             if (coordinates.x === x && coordinates.z === z) {
                 $('#npcDescription').html(npc.doc.description);
                 foundSpot.x = x;
                 foundSpot.z = z;
-                return true ;
+                return true;
             }
         }
 
-        if(foundSpot.x !== x || foundSpot.z !== z) {
+        if (foundSpot.x !== x || foundSpot.z !== z) {
             $('#npcDescription').html(' None');
         }
-        return false ;
+        return false;
     };
     return Collisions;
 });

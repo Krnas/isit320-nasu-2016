@@ -1,22 +1,22 @@
-define([ 'runQuery' ], function (runQuery) {
-    var nameController = function (query, data) {
-        'use strict' ;
-        var $scope = $( '#debug' );
-        var docs = $( '#docs' );
-        var displayData = JSON . stringify (data, null , 5 );
-        if (query === '/databaseName' ) {
-            $scope .html( displayData );
+define(['runQuery'], function(runQuery) {
+    var nameController = function(query, data) {
+        'use strict';
+        var $scope = $('#debug');
+        var docs = $('#docs');
+        var displayData = JSON.stringify(data, null, 5);
+        if (query === '/databaseName') {
+            $scope.html(displayData);
         } else {
-            docs .html( 'allDatabases: ' + displayData );
+            docs.html('allDatabases: ' + displayData);
         }
     };
-    nameController. databaseName = function ($q) {
-        'use strict' ;
-        return runQuery( '/databaseName' , $q);
+    nameController.databaseName = function($q) {
+        'use strict';
+        return runQuery('/databaseName', $q);
     };
-    nameController. allDbs = function ($q) {
-        'use strict' ;
-        return runQuery( '/listDb' , $q);
+    nameController.allDbs = function($q) {
+        'use strict';
+        return runQuery('/listDb', $q);
     };
     return nameController;
 });
