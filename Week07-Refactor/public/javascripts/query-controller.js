@@ -64,21 +64,6 @@ define(['runQuery'], function(runQuery){
         return runQuery('/viewStateCapitalAngular?designDoc=states&view=docStateCapital', $q);
     };
 
-    var nameController = myModule.controller('NameController', function ($scope, databaseName, allDbs) {
-        'use strict';
-        $scope.databaseName = databaseName;
-        $scope.allDbs = allDbs;
-    });
-
-    nameController.databaseName = function ($q) {
-        'use strict';
-        return runQuery('/databaseName', $q);
-    };
-
-    nameController.allDbs = function ($q) {
-        'use strict';
-        return runQuery('/listDb', $q);
-    };
     return queryController;
 });
 
