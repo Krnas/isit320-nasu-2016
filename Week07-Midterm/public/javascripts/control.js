@@ -1,4 +1,4 @@
-define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataReaders', 'utilities'], function(Floor, PointerLockControls, PointerLockSetup, Collisions, DataReaders, utilities) {
+define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataReaders', 'utilities'], function (Floor, PointerLockControls, PointerLockSetup, Collisions, DataReaders, utilities) {
     'use strict';
 
     var camera = null;
@@ -6,7 +6,7 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataR
     var controls;
     var cubes = [];
     var npcs = [];
-    var mainCharacter={ x:0, z:0};
+    var mainCharacter = {x: 0, z: 0};
     var raycaster = null;
     var renderer = null;
     var THREE = null;
@@ -89,10 +89,9 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataR
         // drawText(controlObject, position);
         drawText(position);
         collisions.collisionDetection(controls, cubes, raycaster);
-        var result = collisions . npcDetection ( mainCharacter . x ,
-            mainCharacter . z , npcs . npcList );
-        if ( result ) {
-            npcs . removeNpc ( mainCharacter . x , mainCharacter . z , scene );
+        var result = collisions.npcDetection(mainCharacter.x, mainCharacter.z, npcs);
+        if (result) {
+            npcs.removeNpc(mainCharacter.x, mainCharacter.z, scene);
         }
 
         // Move the camera
@@ -199,6 +198,7 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataR
          return FindRoutes;
          });*/
     }
+
     function addLights() {
         var light = new THREE.DirectionalLight(0xffffff, 1.5);
         light.position.set(1, 1, 1);
