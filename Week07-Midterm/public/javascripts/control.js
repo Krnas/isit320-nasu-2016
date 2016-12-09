@@ -92,8 +92,7 @@ define(['floor', 'PointerLockControls', 'PointerLockSetup', 'Collisions', 'DataR
         // drawText(controlObject, position);
         drawText(position);
         collisions.collisionDetection(controls, cubes, raycaster);
-        var result = collisions.npcDetection(mainCharacter.x,
-            mainCharacter.z, npcs.npcList);
+        var result = collisions.npcDetection (mainCharacter.x , mainCharacter.z , npcs)
         if (result) {
             npcs.removeNpc(mainCharacter.x, mainCharacter.z, scene);
         }
