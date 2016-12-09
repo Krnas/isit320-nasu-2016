@@ -1,4 +1,4 @@
-define(['runQuery', 'utility', 'nameController', 'jsonToHtml'], function(runQuery, utility, nameController, jsonToHtml) {
+define(['runQuery', 'utility', 'jsonToHtml'], function(runQuery, utility, jsonToHtml) {
     'use strict';
 
     var nameController = function(query, data) {

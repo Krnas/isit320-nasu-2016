@@ -52,21 +52,6 @@ define(['runQuery'], function(runQuery) {
         return runQuery('/viewBulk?designDoc=states&view=docBulk', $q);
     };
 
-    var nameController = myModule.controller('NameController', function($scope, databaseName, allDbs) {
-
-        $scope.databaseName = databaseName;
-        $scope.allDbs = allDbs;
-    });
-
-    nameController.databaseName = function($q) {
-
-        return runQuery('/databaseName', $q);
-    };
-
-    nameController.allDbs = function($q) {
-
-        return runQuery('/listDb', $q);
-    };
     return queryController;
 
 });

@@ -15,9 +15,11 @@ define(['runQuery'], function(runQuery) {
 
         return runQuery('/databaseName', $q);
     };
+
     nameController.allDbs = function($q) {
 
         return runQuery('/listDb', $q);
     };
+
     return nameController;
 });
