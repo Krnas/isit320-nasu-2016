@@ -2,6 +2,7 @@ define(['runQuery'], function(runQuery){
     function queryController() {
         'use strict';
         if (result.ok) {
+
             $scope.result = "It worked";
             $scope.stateList = result.data;
         } else if (result.requestFailed) {

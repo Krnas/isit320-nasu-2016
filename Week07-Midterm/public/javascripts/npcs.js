@@ -1,11 +1,22 @@
-Npcs.prototype.npcList = [];
-Npcs.prototype.npcCoordinates = [];
+var baseName = 'npc';
+var size = 20;
+var gridNpc;
+var THREE;
+
+function Npcs(initThree) {
+    THREE = initThree;
+}
+
+function getName(baseName, x, z) {
+    return baseName + '_' + x + '_' + z;
+}
+
 Npcs.prototype.createNpc = function(scene, wireFrame, x, z, xPos, zPos, doc) {
-    'use strict';
     var geometry = new THREE.SphereGeometry(10, 40, 25);
     var material = new THREE.MeshNormalMaterial({
         wireframe: wireFrame
     });
+
     var sphere = new THREE.Mesh(geometry, material);
     sphere.overdraw = true;
     sphere.name = getName(baseName, xPos, zPos);
