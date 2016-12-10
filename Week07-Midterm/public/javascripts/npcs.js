@@ -1,3 +1,6 @@
+define(['utilities'], function (utilities) {
+    'use strict';
+
 var baseName = 'npc';
 var size = 20;
 var gridNpc;
@@ -51,3 +54,4 @@ Npcs.prototype.readNpcGrid = function(scene, wireFrame, docs) {
         utilities.showDebug('npc loaded complete');
     });
 };
+});
